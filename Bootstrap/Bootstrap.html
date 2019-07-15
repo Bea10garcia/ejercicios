@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Required by Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <title>Ejercicio 3 parte 1</title>
+</head>
+
+<body>
+    <!--  Cabecera  -->
+    <!--    La clase "header-area" es particular para poder asignar estilos a nuestro gusto.  -->
+    <header class="cabecera fixed-top">
+        <div class="menu-ppal">    <!-- para tratar el menu como un todo único -->
+            <nav class="navbar">        <!-- bootstrap obliga a que la barra de navegacion sea un elem. nav de clase "navbar"  -->
+                <div class="container">     <!-- para que no se salga del area que queremos controlar  -->
+                    <ul class="nav ml-auto mr-auto mr-mk-0">    <!-- la clase nav indica que es un elem. de navegación. Las otras son utilidades de bootstrap para controla los márgenes -->
+                        <li class="nav-item active"><a class="nav-link" href="">Opción 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Opción 2</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opción 3</a>
+                            <ul class="dropdown-menu" >
+                                <li class="nav-item"><a class="nav-link" href="">Opción 3-1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="">Opción 3-2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="">Opción 4</li>
+                    </ul>            
+                </div>
+            </nav>
+        </div>
+    </header>
+
+	
+   
+	<!-- Bootstrap Javascript  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!--    If we use jquery or popper, it must be added BEFORE Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

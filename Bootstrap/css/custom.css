@@ -1,0 +1,33 @@
+/*
+*************************************
+        | COLORS
+*************************************
+*/
+:root {
+  --blue-navy: #05205D;
+  --blue-light: #3155A7;
+  --brown-leather: #AB987A;
+  --orange-coral: #FF833D;
+  --white-egg: #F5F5F5;
+}
+/*
+*************************************
+        | HEADER
+*************************************
+*/
+.cabecera .menu-ppal,
+.cabecera .menu-ppal, .dropdown-menu {
+  background: var(--orange-coral);
+  box-shadow: 0 3px 16 0 rgba(0, 0, 0, .1);
+}
+.cabecera .menu-ppal .navbar {
+  height: 70px;
+}
+.cabecera .menu-ppal .navbar .nav-link {
+  font-size: 14px;
+  color: var(--white-egg);
+  padding: 8px;
+}
+.cabecera .menu-ppal .navbar .nav-link:hover {
+  font-weight: 600;
+}
