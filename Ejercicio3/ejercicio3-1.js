@@ -8,10 +8,11 @@ function CalculaLetradni(dni){
 	//	Si el dni no es un nro, es que tiene letras y no puede procesarse
 	if(isNaN(dni.value)){
 		alert("El nro. de dni debe contener sólo cifras.");
-		// si ponemos la linea siguiente, se presenta el mensaje y se termina.
-		// Otra opción es utilizar else (la que dejamos) 
-		//return;
-	} else {
+		
+	} else if(dni.value.length != 8){ 
+	 	alert("El nro. debe tener 8 cifras.");
+	}
+	else {
 		resto = dni.value % 23;
 		letra=letras.substr(resto,1);
 		console.log("dni=" +dni.value);
