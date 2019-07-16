@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Ejercicio 3 parte 1</title>
+
+<!--JS-->
+      <script>
+        function averigua() {
+            var cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
+            var posicion = formulario.dni.value % 23;
+            var letra = cadena.substring(posicion, posicion + 1);
+            console.log("dni=" +dni);
+            console.log("letra=" +letra);
+            document.getElementById("nrodni").innerHTML = dni.value;
+            document.getElementById("letra").innerHTML = letra; 
+
+//intento de restringir y validar dni
+            function averigua() {
+                var number =dni; 
+                var greeting;
+                if (number < 9999999) {
+                greeting = "caracteres insuficientes";
+        } 
+                else {
+                greeting = "correcto";
+        }
+                if (number>100000000){
+                greeting="demasiados caracteres"}
+                document.getElementById("dni").innerHTML = greeting;
+        } 
+//llega hasta aqui
+        return;
+        }
+    </script>
+
+<!--CSS-->
+<style type="text/css">
+
+    #for{
+        background-color: lightgreen;
+        margin:10px;
+        padding: 15px;
+    }
+    #dni{
+        text-shadow: 1px 1px;
+        color:grey;
+    }
+
+    #bo{
+        background:green;
+        color:white;
+        padding: 5px;
+        text-shadow: 1px 1px;
+}
+    
+
+
+</style>
+</head>
+
+<body>
+<div id="for">
+	<h2 id="tit">Calculadora de letra de dni</h2>
+    <div>
+        <form name="formulario"> 
+        DNI :
+        <input type="text" id= "dni" name="dni" name="cantidad" min="00000000"  max="99999999" maxlenght="8" size="8"> 
+        <input id="bo" type="button" value="OK" language ="JavaScript" onclick="averigua()">
+
+    	</form>
+    </div>
+    <div>La letra del dni <span id="nrodni"></span> es... <span id="letra"></span>
+    </div>
+</div>
+</body>
+</html>
