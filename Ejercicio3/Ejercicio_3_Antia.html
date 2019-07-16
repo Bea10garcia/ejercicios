@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>DNI Forms</h2>
+    <div>
+        <form name="formulario">
+            Introduzca su DNI <input type="text" id="dni" name="dni" maxlength="8" > </input> <br>
+            <input id="boton" type="button" value="OK" language ="JavaScript" onclick="CalcularLetradni(dni)" name="Calcular" value="Calcular">
+            
+        </form>
+    </div>
+
+
+    <div>La letra del DNI introducida es <span id="nrodni"> </span> y la letra es <span id="letra"></span><br> <br>
+
+    </div>    
+    <!--Segundo ejercicio-->
+    <h2 id=tit2>Comprobador de DNI</h2>
+    <div> 
+        <form>
+            Introduzca su DNI <input type="text" id="dni2" name="dni2" maxlength="9" > </input> <br>
+            <input id="boton2" type="button" value="OK" language ="JavaScript" onclick="VerificarDni(dni2)" name="Calcular" value="Calcular"><br>
+            La letra del DNI introducida es correcta, su letra es <span id="letra2"></span><br> <br>
+
+        </form>
+    </div>
+
+    <!--Script-->
+
+    <script>
+    
+    /*Funcion ejercicio 1*/
+
+        function CalcularLetradni(dni){
+            var letras= "TRWAGMYFPDXBNJZSQVHLCKE";
+            var resto;
+            resto = dni.value % 23;
+            var letra;
+            // isNaN determina si Not-a-Number
+            if(isNaN(dni.value)){
+                alert("El nro. de dni debe contener sólo cifras.");
+            }
+            // El número tiene que ser de 8 cifras
+            else if(dni.value.length != 8){
+                alert("El nro. de dni debe contener 8 cifras.");
+            }
+            //Calcular letra
+            else {
+            letra = letras.substr(resto,1);
+            //Poner texto
+            console.log("dni=" +dni);
+            console.log("letra=" +letra);
+            //console.log (parseInt("12345ab"))
+            //parseInt
+            document.getElementById("nrodni").innerHTML = dni.value;
+            document.getElementById("letra").innerHTML = letra;
+            }
+            //Fin
+            return;
+        }
+
+        /*Funcion ejercicio 2*/
+
+        function VerificarDni(dni2){
+
+            var dninum=dni2[0-8];
+            var dnilet=dni2(9); 
+            var letras2= "TRWAGMYFPDXBNJZSQVHLCKE";
+            var resto2;
+            resto = dninum.value % 23;
+            var letra2;
+
+            // El número tiene que ser de 9 cifras
+            if(dni2.value.length != 9){
+                alert("El nro. de dni debe contener 9 cifras.");
+            }
+              // isNaN determina si Not-a-Number
+            else if(isNaN(dninum.value)){
+                alert("El nro. de dni debe contener sólo cifras en sus 8 primeros caracteres.");
+            }
+            // El número tiene que ser de 8 cifras
+            else if(dninum.value.length != 8){
+                alert("Los numeros del dni deben contener 8 cifras iniciales.");
+            }
+            // La cifra final debe ser una letra
+            else if(dnilet.typeof != string){
+                alert("El carácter final debe ser una letra.");
+            }
+            
+            //Calcular letra
+            else {
+            letra2 = letras.substr(resto,1);
+            }
+
+            // Coinciden numero con letra más DNI?
+
+            if (dni2 != dninum+letra){
+                alert("El letra del DNI o algún número del DNI es erróneo.");
+
+            }
+            else if (dni2 = dninum+letra){
+            
+            //Poner texto
+            console.log("dni=" +dni2);
+            console.log("letra=" +letra2);
+            //console.log (parseInt("12345ab"))
+            //parseInt
+            document.getElementById("nrodni").innerHTML = dni2.value;
+            document.getElementById("letra").innerHTML = letra2;
+            }
+            
+            //Fin
+            return;
+        }
+
+        /*function VerificarDni(dni){
+            if (letra != dni(8)){
+                alert (La letra introducida de DNI es incorrecta)
+
+            }
+            else {
+            document.getElementById("letra").innerHTML = letra;
+            }
+            
+            return;
+        }*/
+
+            //antes de calcular el resto deberíamos verificar si son todos números; strtoval/strtoint/strtodouble
+    
+    </script>
+
+<!---hemos tratado codigo como una cadena de texto y no como un numero-->
+
+</body>
+</html>
