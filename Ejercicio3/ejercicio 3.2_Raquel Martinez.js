@@ -24,23 +24,24 @@ function verificardni(dni) {
   var expresion_regular_dni
  
   expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
- 
-  if(expresion_regular_dni.test (dni) == true){
-     numero = dni.substr(0,dni.length-1);
-     letr = dni.substr(dni.length-1,1);
-     numero = numero % 23;
-     letra='TRWAGMYFPDXBNJZSQVHLCKE';
-     letra=letra.substring(numero, 1);
-
+  dnicorrecto = expresion_regular_dni.test(dni.value); 
+  if(dnicorrecto == true){
+    //  Si el dni tiene el formato correcto, extraemos la parte numérica
+    numero = dni.value.substr(0,dni.value.length-1);
+    //  Extraemos la letra del dni introducido
+    letr = dni.value.substr(dni.value.length-1,1);
+    //  Calculamos la letra
+    numero = numero % 23;
+    //letra='TRWAGMYFPDXBNJZSQVHLCKE';
+    letra='TRWAGMYFPDXBNJZSQVHLCKE'.substr(numero, 1);
+    //  Verificamos si la letra introducida (en mayúsculas) es igual a la calculada
     if (letra!=letr.toUpperCase()) {
        alert('Dni erroneo, la letra del NIF no se corresponde');
-     }
-
+    }
     else{
        alert('Dni correcto');
-     }
+    }
   }
-
   else{
      alert('Dni erroneo, formato no válido');
    }
