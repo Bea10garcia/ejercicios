@@ -6,18 +6,17 @@
 </head>
 
 <body>
-	
 	<h2 id="tit">Calculadora de letra de dni</h2>
     <div>
     	<form>
     		<p>Introduzca un nro. de dni
-    			<input type="text" name="dni">
+    			<input type="text" name="dni" maxlength="8">
     		</p>
-    		<button onclick="CalculaLetradni(dni)">Calcular letra</button>
+    		<input name="Calcular" type="button" value="Calcular" onclick="CalculaLetradni(dni)">
     	</form>
     </div>
-    <div>La letra del dni <span id="nrodni"></span>es <span id="letra"></span>
+    <div>La letra del dni <span id="nrodni"></span> es <span id="letra"></span>
     </div>
-    <script type="text/javascript" src="ejemplo3-1.js"></script>
+    <script type="text/javascript" src="ejercicio3-1.js"></script>
 </body>
 </html>
