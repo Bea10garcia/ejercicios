@@ -2,7 +2,8 @@ function CalculaLetradni(dni){
 	var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 	var resto;
 	var letra;
-	if(isNaN(dni.value)){
+	
+  if(isNaN(dni.value)){
 		alert("el numero de dni debe contener solo cifras");
 		}
 	 else if(dni.value.length != 8){
@@ -12,9 +13,9 @@ function CalculaLetradni(dni){
 		resto=dni.value % 23;
 		letra=letras.substr(resto,1);
 		document.getElementById("nrodni").innerHTML = dni.value;
-		document.getElementById("letra").innerHTML = letra;
+		//document.getElementById("letra").innerHTML = letra;
 		}
-	return;
+	return letra;
 }
 
 function verificardni(dni) {
@@ -45,4 +46,27 @@ function verificardni(dni) {
   else{
      alert('Dni erroneo, formato no válido');
    }
+}
+
+function dimeletra(nro) {
+  var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+  var resto;
+  var letra;
+
+  resto=nro % 23;
+  letra=letras.substr(resto,1);
+  return letra; 
+}
+
+function comprobar(dni) {
+  var nro;
+  var letra;
+  nro= parseInt(dni.value);
+  console.log(nro);
+  letra = dimeletra(nro);
+  if(dni.value==nro+letra) {
+    alert("dni Correcto");
+  } else {
+    alert("dni incorrecto.");
+  }
 }
