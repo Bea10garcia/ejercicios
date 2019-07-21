@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ejercicio3</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script>
+      function CalcularletraDNI ()
+      {
+        var letras="TRWAGMYFPDXBNJZSQVHLCKET";
+        var resto = formulario.dni.value % 23;
+        var letra = letras.substring(resto,resto+1);
+        if (isNaN (dni.value)) {
+            alert ("el nro de dni debe contener solo cifras");
+            return;
+        }
+        if (dni.value.length != 8) {
+          alert ("el nro de dni debe contener 8 cifras")
+          return;
+        }
+        document.getElementById("nrodni").innerHTML = dni.value;
+        document.getElementById("letra").innerHTML = letra;
+      }
+      function ComprobarDNI ()
+      {  
+        var numero = parseInt(formulario.dni2.value);
+        var letras="TRWAGMYFPDXBNJZSQVHLCKET";
+        var resto = numero % 23;
+        var letra = letras.substring (resto,resto+1);
+        var dni3 = numero + letra
+        if (dni2.value != dni3) {
+          alert ("el DNI no es correcto")
+        }
+          else {
+              alert ("El DNI es correcto");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <h2>Calculadora de letra de DNI</h2>
+    <div>
+      <form name="formulario">
+        Introduzca un nro. de DNI
+        <input type="text" id="dni" maxlength="8">
+        <input type="button" value="Calcular letra" language="JavaScript" onclick="CalcularletraDNI()">
+      </form>
+    </div>
+    <div>La letra del dni <span id="nrodni"></span> es... <span id="letra"></span>
+    </div>
+    <h2>Comprobador de DNI</h2>
+    <div>
+      <form name="Comprobador">
+        Introduzca un nro. de DNI
+        <input type="text" id="dni2" maxlength="9">
+        <input type="button" value="Comprobar DNI" language="JavaScript" onclick="ComprobarDNI()">
+      </form>
+    </div>
+    </div>
+  </body>
+</html>

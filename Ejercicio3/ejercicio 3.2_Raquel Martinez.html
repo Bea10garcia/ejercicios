@@ -1,0 +1,34 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Ejercicio 3</title>
+        <script type="text/javascript" src="ejercicio 3.2_Raquel Martinez.js"></script>
+
+    </head>
+
+<body>
+    <div>
+    	<form name= "formulario"action="11-html5-number-input.php">
+    		<h3>DNI</h3><br>
+            <input type="text" name="dni" maxlength="8">
+            <input type="button" class="boton" onclick ="CalculaLetradni(dni)" value="calcular letra">
+    	</form>
+    </div>
+    <br>
+    <div>La letra del dni <span id="nrodni"></span> es <span id="letra"></span>
+    </div>
+    <br><br>
+    <h3 id="tit2">Comprobador de dni</h3>
+    <div>
+        <form>
+            <p>Introduzca un dni
+                <input type="text" name="dni2" maxlength="9">
+            </p>
+            <input type="button" name="Verificar" value="Verificar" onclick="comprobar(dni2)">
+        </form>
+        <div>
+            <p id="validador"></p>
+        </div>
+</body>
+</html>

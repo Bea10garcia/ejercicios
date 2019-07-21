@@ -1,0 +1,28 @@
+
+</html>
+
+<html>
+<head>
+  <title>getElementById example</title>
+</head>
+<body>
+  <h2>El ahorcado</h2>
+  <form id="aOcultar">
+    <div id="bienvenida">Mete aqui tu palabra a adivinar</div>
+    <input type="text" id="aAdivinar">
+    
+  </form>
+  <button onclick="ocultar()" id="botonOcultar">A Jugar</button>
+  <form id="myForm">
+    <p>Mete letra a letra</p>
+    <input type="text" id="letra" maxlength="1">
+  </form>
+  <p>Tu palabra es <span id="adivinando"></span> </p>
+
+  <button onclick="jugarahorcado(letra); ">Adivinar</button>
+  <p>Tienes <span id="vidas">6</span> vidas</p>
+  <p>Llevas <span id="errores">0</span> errores</p>
+  <img id="imgs" src="../img/ahorcado_0.png" width="100px">
+  <script type="text/javascript" src="ahorcado.js"></script>
+</body>
+</html>
