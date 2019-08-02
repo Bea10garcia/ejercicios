@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8" name="viewport">
+    <title>Ejercicio 1 Número par o impar</title>
+</head>
+
+<body>
+    <h1 style="text-align: center">¿Este número es par o impar?</h1>
+    <form>
+        <input type="number" min="0" id="numero">
+        <input type="button" onclick="calcularPar(numero)" value="Descubrir">
+    </form>
+    <p id="demo"></p>
+    <script type="text/javascript">
+    function calcularPar() {
+        var n = numero.value;
+        var dividir2 = n & 2;
+        //var dividir = n % 2;
+        //n%2 == 0 = par;
+        //n%2 != 0 = impar;
+        if (n % 2 == 0) {
+            document.getElementById("demo").innerHTML=" El número " + n + " es par ";
+        } else {
+            document.getElementById("demo").innerHTML=" El número " + n + " es impar ";
+        }
+
+    }
+    </script>
+</body>
+
+</html>
