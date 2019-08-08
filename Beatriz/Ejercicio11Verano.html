@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" name="viewport">
+    <title>Ejercicio 11 JavaScript</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;">¿Qué número es mayor?</h2>
+    <div style="text-align:center;">
+        Ingresa un número: <input type="number" min="0" name="numero1" id="num1">
+        Ingresa un número: <input type="number" min="0" name="numero2" id="num2">
+        <hr>
+        <input type="submit" onclick="numeroMayorMenor()" value="Calcular">
+    </div>
+    <script type="text/javascript">
+        function numeroMayorMenor() {
+            var a = num1.value;
+            var b = num2.value;
+            if (a == b) {
+                alert(" el número " + a + " es igual que el número " + b)
+            } else if (a > b) {
+                alert(" el número " + a + " es mayor que el número " + b)
+            } else {
+                alert(" el número " + a + " es menor que el número " + b)
+            }
+        }
+    </script>
+</body>
+
+</html>
