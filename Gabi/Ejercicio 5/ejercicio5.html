@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Ejercicio - Información sobre eventos</title>
+        <style type="text/css">
+            body {font-family: arial, helvetica; width: 100%;}
+            .box {width:160px; height:160px; border:thin solid silver; padding:.5em; float: left; margin: 15px;}
+            .box h1 {margin: 0;}
+            /* Se fuerza al div a ocupar toda la pantalla */
+            #pantallaCompleta {position: fixed; top: 0; left: 0; bottom: 0; right: 0; overflow: auto;}
+        </style>
+    </head>
+    <body>
+        <div id="pantallaCompleta" onmousemove="coordenadas(event)" onclick="colorRaton()">
+            <div id="raton" class="box">
+                <h1>Ratón</h1>
+                <h4>Navegador[<span id="xnav"></span>,<span id="ynav"></span>]</h4>
+                <h4>Pantalla [<span id="xpan"></span>, <span id="ypan"></span>]</h4>
+            </div>
+            <div id="teclado" class="box">
+                <h1>Teclado</h1>
+                <h4>Carácter [ <span id="letra"></span> ]</h4>
+                <h4>Código [ <span id="codigo"></span> ]</h4>
+            </div>
+        </div>
+        <script type="text/javascript" src="ejercicio5.js"></script>
+    </body>
+</html>
