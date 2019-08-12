@@ -7,6 +7,7 @@ function valnombre(nombre){
     if (nombre == ""){
         document.getElementById("registro_nombre").style.border= "3px solid #fa0000";
         swal("Error", "Es necesario completar el campo de nombre", "warning");
+        return false;
     } else {
         return true;
     }
@@ -21,10 +22,12 @@ function valemail(email){
     if (email == ""){
         document.getElementById("registro_email").style.border= "3px solid #fa0000";
         swal("Error", "Es necesario rellenar el campo de email");
+        return false;
     } else if (email.match(emailRegex)){
         return true;
     } else {
         swal("Error", "El correo electrónico no cumple el formato predefinido (xxxxxxxxxx@xxxxx.com)", "warning");
+        return false;
     }
 }
 
@@ -35,8 +38,10 @@ function valcomentarios(comentario){
     if (comentario == ""){
         document.getElementById("registro_comentarios").style.border= "3px solid #fa0000";
         swal("Error", "Es obligatorio completar el campo de comentarios");
+        return false;
     } else if (comentario.length > 50) {
         swal ("Error", "Los comentarios no pueden exceder de 50 caracteres", "warning");
+        return false;
     } else {
         return true;
     }
@@ -62,6 +67,7 @@ function valpassword (password){
         return true;
     } else{
         swal ("Contraseña no válida" , "La contraseña debe contener al menos 6 caracteres, de los cuales al menos debe haber una mayúscula, una minúscula y un dígito", "warning");
+        return false;
     }
 }
 

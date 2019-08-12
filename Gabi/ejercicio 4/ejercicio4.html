@@ -55,7 +55,7 @@
             <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10" onfocusout="valcomentarios(registro_comentarios)" onkeyup="contarcaract(registro_comentarios)"></textarea>
             <p id="contador"><span id="caract">0</span>/50 caracteres</p>
             <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" required><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
-            <input type="submit" name="submit" value="Enviar" onclick="enviar()">
+            <input type="submit" name="submit" value="Enviar" onclick="return enviar()">
         </fieldset>
     </form>
     <script type="text/javascript" src="ejercicio4.js"></script>
