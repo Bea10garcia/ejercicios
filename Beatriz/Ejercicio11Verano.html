@@ -12,18 +12,32 @@
         Ingresa un número: <input type="number" min="0" name="numero1" id="num1">
         Ingresa un número: <input type="number" min="0" name="numero2" id="num2">
         <hr>
-        <input type="submit" onclick="numeroMayorMenor()" value="Calcular">
+        <!--    Es una buena práctica pasar los parámetros a la función. Así evitaremos olvidarlo cuando sea estríctamente necesario.
+                Por tato sustituimos la sentencia original
+                    <input type="submit" onclick="numeroMayorMenor()" value="Calcular"> 
+                Por esta otra
+        -->
+        <input type="submit" onclick="numeroMayorMenor(num1.value, num2.value)" value="Calcular">
     </div>
     <script type="text/javascript">
-        function numeroMayorMenor() {
-            var a = num1.value;
-            var b = num2.value;
-            if (a == b) {
-                alert(" el número " + a + " es igual que el número " + b)
-            } else if (a > b) {
-                alert(" el número " + a + " es mayor que el número " + b)
+        /*
+            Como en la llamada hemos pasado los parámetros, en la definición de la función es necesario hacer referencia a los mismos.
+            Por tanto, sustituímos la definción original
+
+                function numeroMayorMenor() {
+
+            Por esta otra
+        */
+        function numeroMayorMenor(n1, n2) {    
+            // Al estar definidos los parámentros directamente como los númeroa a comparar, as variables a y b no son necesarias.
+            //var a = num1.value;
+            //var b = num2.value;
+            if (n1 == n2) {
+                alert(" el número " + n1 + " es igual que el número " + n2)
+            } else if (n1 > n2) {
+                alert(" el número " + n1 + " es mayor que el número " + n2)
             } else {
-                alert(" el número " + a + " es menor que el número " + b)
+                alert(" el número " + n1 + " es menor que el número " + n2)
             }
         }
     </script>
