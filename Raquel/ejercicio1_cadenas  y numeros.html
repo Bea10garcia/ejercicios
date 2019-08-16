@@ -3,24 +3,23 @@
 	<head>
 		<meta charset= "utf-8" />
         <title>Ejercicio 1 - Cadenas y números</title>
-        <script type="text/javascript">
-        function calcularParImpar() {
-            var n
-            if (n % 2 == 0) {
-            document.getElementById("demo").innerHTML=" El número " + n + " es par ";
-            } else {
-            document.getElementById("demo").innerHTML=" El número " + n + " es impar ";
-            }
-        }
-        </script>
 	</head>
 	<body>
         <form>
-            <input type="text" id="n">
-            <input type="button" value="par o impar" onclick="calcularParImpar(n.value)">
+            <input type="number" id="n">
+            <input type="button" value="par o impar" onclick="calcularParImpar(n)">
         </form>
-        <div>
-            <p id="demo"></p>
+        <div id="resultado">
         </div>
+        <script type="text/javascript">
+            function calcularParImpar(n) {
+                var n = n.value;
+                if (n % 2 == 0) {
+                document.getElementById("resultado").innerHTML=" El número " + n + " es par ";
+                } else {
+                document.getElementById("resultado").innerHTML=" El número " + n + " es impar ";
+                }
+            }
+        </script>
     </body>
 </html>
