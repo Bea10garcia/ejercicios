@@ -65,6 +65,7 @@
         <fieldset>
             <legend>Registro</legend>
             
+            <!-- El identado de la cláusula "input" se pone para mejorar la legibilidad del código -->
             <label for="registro_nombre">Nombre:</label>
                 <input type="text" name="nombre" id="registro_nombre" required> <!-- Sólo hace falta la cláusula "required" -->
             <label for="registro_apellidos">Apellido:</label>
@@ -77,6 +78,7 @@
                 <textarea name="comentarios" id="registro_comentarios" rows="10" required onblur="longitudComentario(comentarios.value)"></textarea>
             <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" required>
             <label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            
             <input type="submit" value="Enviar">
         </fieldset>
     </form>

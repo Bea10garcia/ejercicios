@@ -10,21 +10,21 @@
     <h1 style="text-align: center">¿Este número es par o impar?</h1>
     <form>
         <input type="number" min="0" id="numero">
-        <input type="button" onclick="calcularPar(numero)" value="Descubrir">
+        <input type="button" onclick="calcularPar(numero.value)" value="Descubrir">
     </form>
     <p id="demo"></p>
     <script type="text/javascript">
-    function calcularPar() {
-        var n = numero.value;
-        var dividir2 = n & 2;
+    function calcularPar(n) {
+        //var n = numero.value;
+       // var dividir2 = n & 2;
         //var dividir = n % 2;
         //n%2 == 0 = par;
         //n%2 != 0 = impar;
-        if (n % 2 == 0) {
-            document.getElementById("demo").innerHTML=" El número " + n + " es par ";
-        } else {
-            document.getElementById("demo").innerHTML=" El número " + n + " es impar ";
-        }
+        //if (n % 2 == 0) {
+            document.getElementById("demo").innerHTML=" El número " + n + (n % 2 == 0 ? " es par " : " es impar ");
+       // } else {
+       //     document.getElementById("demo").innerHTML=" El número " + n + " es impar ";
+       // }
 
     }
     </script>
