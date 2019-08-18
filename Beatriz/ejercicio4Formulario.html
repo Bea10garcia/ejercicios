@@ -42,13 +42,16 @@
 </head>
 
 <body>
+    <!--    CODIGO ORIGINAL  -->
+    <!-- 
     <form action="servidor.php" method="POST" id="registro">
         <fieldset>
             <legend>Registro</legend>
-            <!-- con required se muestra que es necesario el nombre, email y comentarios, sin dejar que se haga submit si no se rellenan esos campos-->
+            
             <label for="registro_nombre">Nombre:</label><input type="text" name="nombre" id="registro_nombre" required="required">
             <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido">
-            <!--también se puede hacer cambiando type="text" por type="email"-->
+           
+
             <label for="registro_email">Email:</label><input type="text" name="email" id="registro_email" required="required" onblur="validarMail(email)">
             <label for="registro_password">Password:</label><input type="password" name="password" id="registro_password" onblur="validarContrasena(password)">
             <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10" required="required" onblur="longitudComentario(comentarios)"></textarea>
@@ -56,65 +59,149 @@
             <input type="submit" value="Enviar" onsubmit="validarFormulario()">
         </fieldset>
     </form>
-    <script type="text/javascript">
-    function validarMail(email) {
-        var eMail = email.value;
-        var regExpMail = /\w+@\w+\.+[a-z]/;
-        if (eMail.match(regExpMail)) {
-            alert("Email correcto")
-        } else {
-            alert("Email incorrecto")
-        }
-    }
-
-    function validarContrasena(password) {
-        var contrasena = password.value;
-        //\d sirve igual que si pones [0-9]
-        var regExp = /(?=.*\d)(?=.*[a-z])(?=:*[A-Z]).{6,}/;
-        //return regExp.test(contra);
-
-        if (contrasena.match(regExp)) {
-            alert("Su contraseña es correcta")
-        } else {
-            alert("Su contraseña es incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito")
-        }
-
-        /* Mirar cómo hacer que este operador ternario funcione
-        alert() = (contrasena.match(regExp)) ? " Contraseña correcta " : " Contraseña Incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito "; 
-        */
-    }
-
-
-    // comprobar que el comentario no supera 50 caracteres
-    function longitudComentario(comentarios) {
-        //con .value hacemos que las letras cuenten como números
-        var largoComentario = comentarios.value;
-        if (largoComentario == "") {
-            alert("El campo de comentarios no puede quedar vacío")
-        } else if (largoComentario.length <= 50) {
-            alert("Su comentario es correcto")
-        } else if (largoComentario.length > 50) {
-            alert("El texto no puede pasar de 50 caracteres")
-        }
-    }
-
-    function validarFormulario() {
-        //se validan todos los campos antes de realizar submit
-        var nombre = document.getElementById("registro_nombre");
-        var email = document.getElementById("registro_email");
-        var contrasena = document.getElementById("registro_password");
-        var comentarios = document.getElementById("registro_comentarios");
-        if (nombre === "" || email === "" || contrasena === "" || comentarios === "") {
-            alert("Revisa que todos los campos estén completos")
-        } else {
-            return true;
-        }
-    }
-    </script>
-    <!-- mirar esto porque no entiendo su utilidad
-    <script type="text/javascript" src="js/validador.js"></script>
-    <script type="text/javascript" src="js/code.js"></script>
     -->
+    <!--    CODIGO PROPUESTO  -->
+    <form action="act.php" method="POST" id="registro" onsubmit="return validarformulario()">
+        <fieldset>
+            <legend>Registro</legend>
+            
+            <label for="registro_nombre">Nombre:</label>
+                <input type="text" name="nombre" id="registro_nombre" required> <!-- Sólo hace falta la cláusula "required" -->
+            <label for="registro_apellidos">Apellido:</label>
+                <input type="text" name="apellido" id="registro_apellido">
+            <label for="registro_email">Email:</label>
+                <input type="text" name="email" id="registro_email" required onblur="validarMail(email.value)">
+            <label for="registro_password">Password:</label>
+                <input type="password" name="password" id="registro_password" onblur="validarContrasena(password.value)">
+            <label for="registro_comentarios">Comentarios:</label>
+                <textarea name="comentarios" id="registro_comentarios" rows="10" required onblur="longitudComentario(comentarios.value)"></textarea>
+            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" required>
+            <label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+
+    <script>
+        /*
+              CODIGO ORIGINAL
+        
+        function validarMail(email) {
+            var eMail = email.value;
+            var regExpMail = /\w+@\w+\.+[a-z]/;
+            if (!eMail.match(regExpMail)) {
+                alert("Email correcto")
+            } else {
+                alert("Email incorrecto")
+            }
+        }
+
+        function validarContrasena(password) {
+            var contrasena = password.value;
+            //\d sirve igual que si pones [0-9]
+            var regExp = /(?=.*\d)(?=.*[a-z])(?=:*[A-Z]).{6,}/;
+            //return regExp.test(contra);
+
+            if (!contrasena.match(regExp)) {
+                alert("Su contraseña es correcta")
+            } else { 
+                alert("Su contraseña es incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito")
+            }
+
+            // Mirar cómo hacer que este operador ternario funcione
+            alert() = (contrasena.match(regExp)) ? " Contraseña correcta " : " Contraseña Incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito "; 
+            
+        }
+
+        // comprobar que el comentario no supera 50 caracteres y no está vací0
+        function longitudComentario(comentarios) {
+            //con .value hacemos que las letras cuenten como números
+            var largoComentario = comentarios.value;
+            if (largoComentario == "") {
+                alert("El campo de comentarios no puede quedar vacío")
+            } else if (largoComentario.length <= 50) {
+                alert("Su comentario es correcto")
+            } else if (largoComentario.length > 50 || largoComentario.length == 0) {
+                alert("El texto no puede pasar de 50 caracteres y tampoco puede quedar vacío")
+            }
+        }
+
+        function validarFormulario() {
+            //se validan todos los campos antes de realizar submit
+            var nombre = document.getElementById("registro_nombre");
+            var email = document.getElementById("registro_email");
+            var contrasena = document.getElementById("registro_password");
+            var comentarios = document.getElementById("registro_comentarios");
+            if (nombre === "" || email === "" || contrasena === "" || comentarios === "") {
+                alert("Revisa que todos los campos estén completos")
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+              CODIGO PROPUESTO
+        */
+  
+        function validarMail(email) {
+            let regExpMail = /\w+@\w+\.+[a-z]/;
+
+            // Otra expresión algo más completa ...
+            //let regExpMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/;
+
+            // la función test verifica si la cadena satisface la expresión regular o no
+            if (! regExpMail.test(email)) {
+                alert("Email incorrecto")
+            }
+        }
+
+        function validarContrasena(password) {
+
+            //var regExp = /(?=.*\d)(?=.*[a-z])(?=:*[A-Z]).{6,}/;
+
+            // coincide con una cadena de 6 o más caracteres que debe tener un dígito y una mayúscula
+            let regExp = /^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{6,})$/;  
+            
+            //  Comprueba que la pass cumple la expresión regular y que hay pass (para poder cambiar de campo. Si no hay nada escrito, se puede cabiar el foco. Si no, hasta que la pass no este bien construida, no se cambia el foco)
+            if (!regExp.test(password) && password.length != 0) {
+                alert("Su contraseña es incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito")
+                document.getElementById("registro_password").focus();
+            }
+            
+            // Mirar cómo hacer que este operador ternario funcione --> No hace falta ya que sólo se avisa si no cumple. 
+            //  De querer hacerlo, sería así:
+            //t = regExp.test(password) ? " Contraseña correcta " : " Contraseña Incorrecta, debe contener mínimo 6 caracteres y al menos una letra minúscula, una letra mayúscula y un dígito ";
+            //alert(t); 
+        }
+
+        // comprobar que el comentario no supera 50 caracteres y no está vací0
+        function longitudComentario(comentarios) {
+            //con .value hacemos que las letras cuenten como números
+            //let largoComentario = comentarios.length;
+            if (comentarios.length > 50 || comentarios.length == 0) {
+                alert("El texto no puede pasar de 50 caracteres y tampoco puede quedar vacío");
+            }
+        }
+
+        function validarFormulario() {
+            //  Se validan todos los campos QUE NO HAN SIDO VALIDADOS PREVIAMENTE antes de realizar submit.
+
+            //  Como todas las restricciones han sido comprobadas al perder el foco el campo, o son "required", no hace falta volver a comprobarlas.
+            //  Por tanto, esta función no es necesaria con la actual lógica de validación. 
+            /*
+            var nombre = document.getElementById("registro_nombre");
+            var email = document.getElementById("registro_email");
+            var contrasena = document.getElementById("registro_password");
+            var comentarios = document.getElementById("registro_comentarios");
+            if (nombre === "" || email === "" || contrasena === "" || comentarios === "") {
+                alert("Revisa que todos los campos estén completos")
+                return false;
+            } else {
+                return true;
+            }
+            */
+        }
+    </script>
+    
 </body>
 
 </html>
