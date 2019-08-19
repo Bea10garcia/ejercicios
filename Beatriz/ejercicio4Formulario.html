@@ -151,8 +151,9 @@
             //let regExpMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/;
 
             // la función test verifica si la cadena satisface la expresión regular o no
-            if (! regExpMail.test(email)) {
-                alert("Email incorrecto")
+            if (! regExpMail.test(email) && regExpMail.length != 0) {
+                alert("Email incorrecto");
+                document.getElementById("registro_email").focus();
             }
         }
 
