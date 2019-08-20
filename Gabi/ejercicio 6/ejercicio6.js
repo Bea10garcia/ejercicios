@@ -31,9 +31,6 @@ function escogerPalabra(){
 
     document.getElementById("palabra").innerHTML = palabraVista;
 
-    
-
-    
     //for ( i = 0; i < escogida[0].length; i++){
     //    document.getElementById("palabra").innerHTML += "_"
     //}
@@ -47,7 +44,7 @@ function abc(a, z){
     // Si el elemento "abcdario" tiene contenido, los botones ya fueron creados y no hay que volver a hacerlo
     let btns = document.getElementById("abcdario").children // devuelve los nodos del elem. "abcdario"
     if (! btns.length == 0) {           // Si hay nodos, es que los botones ya están creados
-        // Aseguramos que el fondo es el marcado en el archivo .css y que queda activado
+        // Aseguramos que el fondo es el marcado en el archivo .css poniendo el estilo a "" y que queda activado
         for(let i=0; i < btns.length; i++) {
             btns[i].style = "";
             btns[i].disabled = false;
@@ -61,7 +58,7 @@ function abc(a, z){
         letra = String.fromCharCode(i).toUpperCase();
         document.getElementById("abcdario").innerHTML += "<button value='"+letra+"' onclick='probar(\""+letra+"\")' class='letra' id='"+letra+"'>" + letra + "</button>";
         if (i==110) {
-            document.getElementById("abcdario").innerHTML += "<button value=Ñ onclick='probarÑ' class='letra' id='Ñ'> Ñ </button>";
+            document.getElementById("abcdario").innerHTML += "<button value='Ñ' onclick='probar(\"Ñ\")' class='letra' id='Ñ'> Ñ </button>";
         }
     }
 }
@@ -130,7 +127,8 @@ function acierto(letra, ultpos){
     //  en la llamada se ha pasado una posición
     while (ultpos != -1){
         //  Pongo la letra acertada en su sitio ...
-        palabraVista = setCharAt(palabraVista, ultpos, letra);
+        palabraVista = palabraVista.substr(0,ultpos) + letra + palabraVista.substr(ultpos + 1);
+
         //  Incremento la posición a partir de la que se busca la letra
         ultpos++;
         //  ... y busco más ocurrencias de la misma letra.
@@ -202,8 +200,9 @@ function inicio(){
     */
 
     //Hemos añadido el id en el div de las imágenes para poder hacer esto
-    for (let i=0; i=5; i++){
-         document.getElementById('imagenes').children[i].style.opacity=0;
+    for (let i=0; i<=5; i++){
+         document.getElementById('image'+i).style.opacity=0;
+         console.log(i);
     }
 }
 
