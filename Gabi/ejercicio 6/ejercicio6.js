@@ -29,7 +29,7 @@ function escogerPalabra(){
     //  esta están optimizadas frente al código que podamos escribir
     palabraVista = "_".repeat(escogida[0].length);
 
-    document.getElementById("palabra").innerHTML = "_".repeat(escogida[0].length);
+    document.getElementById("palabra").innerHTML = palabraVista;
 
     
 
@@ -136,6 +136,9 @@ function acierto(letra, ultpos){
         //  ... y busco más ocurrencias de la misma letra.
         ultpos = escogida[0].indexOf(letra,ultpos);
     }
+    //  Pongo la palabra vista en pantalla
+    document.getElementById("palabra").innerHTML = palabraVista;
+    
     //  Marco los botones como acertados
     document.getElementById(letra).style.backgroundColor = "green";     
     document.getElementById(letra).disabled = true;
