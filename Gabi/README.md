@@ -37,13 +37,14 @@ Ejercicio 5 --> **9,75**
 
 - Falta poner en blanco el cuadro del teclado al mover el ratón (-0,25).
 
-Ejercicio 6 --> **8,0**
+Ejercicio 6 --> **7,5**
 - En las llamadas a las funciones en el .html se puede pasar como parámentrola propiedad ".value" del objeto. Al ocupar menos espacio de memoria un número (propiedad ".value") que un objeto ("input text") se mejora el uso de la memoria. 
 	- En este caso concreto es una diferencia irrelevante, pero es necesario acostumbrarse a tener presente siempre técnicas que optimicen el uso de memoria y demás recursos del terminal. (-0,25)
 	- Además, en la función únicamente se utiliza la propiedad "value" del objeto.
 - Siempre que se pueda, se deben utilizar las funciones del leguaje para obtener lo que se desee ya que estas están optimizadas frente al código que podamos escribir.
 	- En la función escogerPalabra, para obtener una cadena como repetición de otra, se puede utilizar la función ".repeat" aplicada a la cadena. (buscar "js repeat string" o "js repeat char" (-0,5).
 - Los botones se crean de nuevo cada vez que se ejecuta el juego. Aunque en este caso no supone un gran gasto, si es una mala práctica ya que desperdicia recursos. (-0,5)
+- Error en la construcción del botón "Ñ": pone onclick='probarÑ' en lugar de onclick='probar(Ñ)' (-0,5) --> Denota falta de pruebas
 - Bien por la llamada a "onload" (+.25)
 - Los parámetros no hace falta volverlos a definir como variables dentro de la función (-0,5)
 - La función "acierto" se puede optimizar disminuyendo el nro. de variables y las líneas de código (-0,5).
