@@ -10,8 +10,9 @@
 <body>
     <h2>¿Es palíndromo?</h2>
     <form action="">
+        <!--  Puesto que se va a pasar una frase, hubiera sido más adecuado un "textarea" o una ventana más larga -->
         <p>Introducir frase</p> <input type="text" name="frase">
-        <input type="button" value="Calcular" onclick="Palindromo(frase)">
+        <input type="button" value="Calcular" onclick="Palindromo(frase.value)">
     </form>
     <div>
         <h4><span id="salida"></span></h4>

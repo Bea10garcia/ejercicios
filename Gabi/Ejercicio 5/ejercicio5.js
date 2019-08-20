@@ -13,6 +13,8 @@ function coordenadas(event) {
     document.getElementById("xpan").innerHTML = xpan;
     document.getElementById("ypan").innerHTML = ypan;
     document.getElementById("raton").style.backgroundColor = "white";
+    document.getElementById("teclado").style.backgroundColor = "white"
+
 }
 
 // Cambiar color al pulsar tecla

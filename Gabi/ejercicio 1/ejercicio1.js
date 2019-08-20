@@ -1,4 +1,5 @@
 function ParImpar(nro){
+    /*
     var nro;
     var resto;
     nro = nro.value;
@@ -9,4 +10,7 @@ function ParImpar(nro){
     }else{
         document.getElementById("salida").innerHTML="El número es impar"
     }
+    */
+    // Propuesto por CPL
+        document.getElementById("salida").innerHTML= ' El número ' + nro + ((nro % 2 == 0) ?  ' es par ' : ' es impar ');
 }

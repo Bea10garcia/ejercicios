@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ejercicio 21 - Validación de formularios</title>
+    <title>Ejercicio 4 - Validación de formularios</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style type="text/css">
     body {font-family: arial, helvetica;}
@@ -48,13 +48,24 @@
     <form action="servidor.php" method="POST" id="registro">
         <fieldset>
             <legend>Registro</legend>
-            <label for="registro_nombre">Nombre:</label><input type="text" name="nombre" id="registro_nombre" onfocusout="valnombre(registro_nombre)">
-            <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido">
-            <label for="registro_email">Email:</label><input type="text" name="email" id="registro_email" onfocusout="valemail(registro_email)">
-            <label for="registro_password">Password:</label><input type="password" name="password" id="registro_password" onfocusout="valpassword(registro_password)">
-            <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10" onfocusout="valcomentarios(registro_comentarios)" onkeyup="contarcaract(registro_comentarios)"></textarea>
+            <label for="registro_nombre">Nombre:</label>
+                <!--<input type="text" name="nombre" id="registro_nombre" onfocusout="valnombre(registro_nombre)"> -->
+                <input type="text" name="nombre" id="registro_nombre" required> <!-- Sólo hace falta la cláusula "required" -->
+            <label for="registro_apellidos">Apellido:</label>   
+                <input type="text" name="apellido" id="registro_apellido">
+            <label for="registro_email">Email:</label>
+                <!--<input type="text" name="email" id="registro_email" onfocusout="valemail(registro_email)"> -->
+                <input type="text" name="email" id="registro_email" required onfocusout="valemail(registro_email.value)">
+            <label for="registro_password">Password:</label>
+                <!-- <input type="password" name="password" id="registro_password" onfocusout="valpassword(registro_password.value)"> -->
+                <input type="password" name="password" id="registro_password" required onfocusout="valpassword(registro_password.value)">
+            <label for="registro_comentarios">Comentarios:</label>
+                <!-- <textarea name="comentarios" id="registro_comentarios" rows="10" onfocusout="valcomentarios(registro_comentarios.value)" onkeyup="contarcaract(registro_comentarios)"></textarea> -->
+                <textarea name="comentarios" id="registro_comentarios" rows="10" required onfocusout="valcomentarios(registro_comentarios.value)" onkeyup="contarcaract(registro_comentarios)"></textarea>
             <p id="contador"><span id="caract">0</span>/50 caracteres</p>
-            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" required><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" required>
+                <label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+
             <input type="submit" name="submit" value="Enviar" onclick="return enviar()">
         </fieldset>
     </form>
