@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicio 10 Biorritmos</title>
+    <!--añado bootstrap para practicar-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--añado biblioteca moment porque me facilita calcular los días entre una fecha y la actual-->
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <div class="row justify-content-center" class="col-md-4">
+        <h1 class="title-single">Calculadora de Biorritmos</h1>
+    </div>
+    <!-- formulario para ingresar fecha nacimiento - con mx-auto se centra el elemento-->
+    <form id="ingresaCumple">
+        <div class="mx-auto" style="width: 200px; text-align:center">
+            <div class="form-group">
+                <label for="fechaCumple">Fecha de nacimiento:</label>
+                <input type="date" name="fechaNacimiento">
+                <!-- antes me fallaba porque en type puse submit y por eso no me aparecían los datos en la tabla -->
+                <!-- para poner varias funciones en un onclick hay que ponerlas separadas por ; y no con dos onclicks porque si no, no me funciona -->
+                <button type="button" class="btn btn-primary" onclick="calcularDiasVividos(fechaNacimiento.value); esconderCiclo()">Calcular</button>
+            </div>
+        </div>
+    </form>
+    <!-- tabla para cada ciclo-->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-md-offset-6 text-center">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <!-- scope sirve para decidir si es una columna o una fila -->
+                            <th scope="col"></th>
+                            <th scope="col" class="bg-success">Físico</th>
+                            <th scope="col" class="bg-warning">Emocional</th>
+                            <th scope="col" class="bg-info">Intelectual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Resultados</th>
+                            <td id="resultadoFisico"></td>
+                            <td id="resultadoEmocional"></td>
+                            <td id="resultadoIntelectual"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- checkbox para los otros 4 ciclos -->
+    <div class="container-fluid justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-md-offset-12 text-center">
+            <h2> Otros ciclos de biorritmos: </h2>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="espiritual" value="option1" onclick="mostrarCicloEspiritual()">
+                <label class="form-check-label" for="inlineCheckbox1">Espiritual</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="intuincion" value="option2" onclick="mostrarCicloIntuicion()">
+                <label class="form-check-label" for="inlineCheckbox2">Intuición</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="conciencia" value="option3" onclick="mostrarCicloConciencia()">
+                <label class="form-check-label" for="inlineCheckbox1">Conciencia</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="estetica" value="option4" onclick="mostrarCicloEstetica()">
+                <label class="form-check-label" for="inlineCheckbox2">Estética</label>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid col-lg-6 col-md-6 col-sm-6 col-md-offset-6 text-center justify-content-center">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="table-success">Espiritual</th>
+                    <th scope="col" class="table-danger">Intuición</th>
+                    <th scope="col" class="table-warning">Conciencia</th>
+                    <th scope="col" class="table-info">Estética</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="resultadoEspiritual"></td>
+                    <td id="resultadoIntuicion"></td>
+                    <td id="resultadoConciencia"></td>
+                    <td id="resultadoEstetica"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+    /* cálculo de los días vividos por esa persona para obtener la t de la ecuación sen(2*pi*t/nº días del ciclo) */
+    function calcularDiasVividos(fechaNacimiento) {
+        /* con esto obtengo el día actual*/
+        var hoy = moment();
+        var diasVividos = hoy.diff(fechaNacimiento, 'days');
+        console.log(diasVividos, ' días vividos entre el nacimiento y hoy');
+        /* llamo a la función y así le paso los días vividos*/
+        calcularSenoBiorritmo(diasVividos);
+        /* esta llama a la función que calcula los senos de los ciclos distintos */
+        calcularCiclosDistintos(diasVividos);
+    }
+
+    /* función para calcular el seno para cada ciclo mediante la ecuación sen(2*pi*t/nº días del ciclo */
+    function calcularSenoBiorritmo(diasVividos) {
+        var vivido = diasVividos;
+        var pi = Math.PI;
+
+        /* método para calcular el ciclo físico, con to Fixed redondeo el resultado para poder hacer el porcentaje con *100 y % */
+        var senoFisico = Math.sin((2 * pi * vivido) / 23).toFixed(2);
+        var senoFisico2 = (senoFisico * 100) + '%';
+        document.getElementById("resultadoFisico").innerHTML = senoFisico2;
+
+        /* método para el ciclo emocional */
+        var senoEmocional = Math.sin((2 * pi * vivido) / 28).toFixed(2);
+        var senoEmocional2 = (senoEmocional * 100) + '%';
+        document.getElementById("resultadoEmocional").innerHTML = senoEmocional2;
+
+        /* método para el ciclo intelectual */
+        var senoIntelectual = Math.sin((2 * pi * vivido) / 33).toFixed(2);
+        var senoIntelectual2 = (senoIntelectual * 100) + '%';
+        document.getElementById("resultadoIntelectual").innerHTML = senoIntelectual2;
+    }
+
+    function calcularCiclosDistintos(diasVividos) {
+        var vivido = diasVividos;
+        var pi = Math.PI;
+
+        /* repetición para el resto de ciclos distintos: Espiritual, intuición, conciencia y estética */
+        var senoEspiritual = Math.sin((2 * pi * vivido) / 53).toFixed(2);
+        var senoEspiritual2 = (senoEspiritual * 100) + '%';
+        document.getElementById("resultadoEspiritual").innerHTML = senoEspiritual2;
+
+        var senoIntuicion = Math.sin((2 * pi * vivido) / 38).toFixed(2);
+        var senoIntuicion2 = (senoIntuicion * 100) + '%';
+        document.getElementById("resultadoIntuicion").innerHTML = senoIntuicion2;
+
+        var senoConciencia = Math.sin((2 * pi * vivido) / 48).toFixed(2);
+        var senoConciencia2 = (senoConciencia * 100) + '%';
+        document.getElementById("resultadoConciencia").innerHTML = senoConciencia2;
+
+        var senoEstetica = Math.sin((2 * pi * vivido) / 43).toFixed(2);
+        var senoEstetica2 = (senoEstetica * 100) + '%'
+        document.getElementById("resultadoEstetica").innerHTML = senoEstetica2;
+    }
+    /* función para poder ocultar/mostrar datos de la tabla de los ciclos distintos. El problema es que no sé hacerlo de manera que coja todos los ciclos sin tener que hacer cuatro funciones de esconderCiclo */
+    function esconderCiclo() {
+        var elemento = document.getElementById("resultadoEspiritual");
+        elemento.style.visibility = 'hidden';
+    }
+    /* la variable la pongo fuera porque si la pongo dentro de la función siempre me da par ya que siempre valdría 2 */
+    var contadorEspiritual = 2;
+
+    /* lo he intentado hacer con un array para que la función valiera para todos los ciclos, pero no me sale:
+
+    var todosCiclosDistintos = ["resultadoEspiritual", "resultadoIntuicion", "resultadoConciencia", "resultadoEstetica"];
+    var elemento = document.getElementById(todosCiclosDistintos);
+    
+    */
+
+    function mostrarCicloEspiritual() {
+        var elemento = document.getElementById("resultadoEspiritual");
+        /*con esto cuando el contador valga número par, el resto es cero, así que cuando está marcada la casilla es par y muestra y cuando está sin marcar, es impar y oculta*/
+        if (contadorEspiritual % 2 == 0) {
+            elemento.style.visibility = 'visible';
+            /* uso console.log para poder ver cuándo entro en if y cuándo en else*/
+            console.log(contadorEspiritual, ' el contador MUESTRA');
+            contadorEspiritual++;
+        } else {
+            elemento.style.visibility = 'hidden';
+            console.log(contadorEspiritual, ' el contador OCULTA');
+            contadorEspiritual++;
+        }
+    }
+
+    var contadorIntuicion = 2;
+
+    function mostrarCicloIntuicion() {
+        var elemento = document.getElementById("resultadoIntuicion");
+        /*con esto cuando el contador valga número par, el resto es cero, así que cuando está marcada la casilla es par y muestra y cuando está sin marcar, es impar y oculta*/
+        if (contadorIntuicion % 2 == 0) {
+            elemento.style.visibility = 'visible';
+            /* uso console.log para poder ver cuándo entro en if y cuándo en else*/
+            console.log(contadorIntuicion, ' el contador MUESTRA');
+            contadorIntuicion++;
+        } else {
+            elemento.style.visibility = 'hidden';
+            console.log(contadorIntuicion, ' el contador OCULTA');
+            contadorIntuicion++;
+        }
+    }
+
+    var contadorConciencia = 2;
+
+    function mostrarCicloConciencia() {
+        var elemento = document.getElementById("resultadoConciencia");
+        /*con esto cuando el contador valga número par, el resto es cero, así que cuando está marcada la casilla es par y muestra y cuando está sin marcar, es impar y oculta*/
+        if (contadorConciencia % 2 == 0) {
+            elemento.style.visibility = 'visible';
+            /* uso console.log para poder ver cuándo entro en if y cuándo en else*/
+            console.log(contadorConciencia, ' el contador MUESTRA');
+            contadorConciencia++;
+        } else {
+            elemento.style.visibility = 'hidden';
+            console.log(contadorConciencia, ' el contador OCULTA');
+            contadorConciencia++;
+        }
+    }
+
+    var contadorEstetica = 2;
+
+    function mostrarCicloEstetica() {
+        var elemento = document.getElementById("resultadoEstetica");
+        /*con esto cuando el contador valga número par, el resto es cero, así que cuando está marcada la casilla es par y muestra y cuando está sin marcar, es impar y oculta*/
+        if (contadorEstetica % 2 == 0) {
+            elemento.style.visibility = 'visible';
+            /* uso console.log para poder ver cuándo entro en if y cuándo en else*/
+            console.log(contadorEstetica, ' el contador MUESTRA');
+            contadorEstetica++;
+        } else {
+            elemento.style.visibility = 'hidden';
+            console.log(contadorEstetica, ' el contador OCULTA');
+            contadorEstetica++;
+        }
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
