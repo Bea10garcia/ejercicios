@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejercicio - Información sobre eventos</title>
+    <style type="text/css">
+    body {
+        font-family: arial, helvetica;
+    }
+
+    .box {
+        width: 160px;
+        height: 160px;
+        border: thin solid silver;
+        padding: .5em;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .box h1 {
+        margin: 0;
+    }
+
+    /* se aplican propiedades de estilo a body para que ocupe toda la pantalla */
+    body {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    </style>
+</head>
+<!-- llamo a la función desde body para que pueda registrar el movimiento del ratón y los colores por toda la pantalla -->
+<!-- DUDA ¿está mal que use event dos veces para dos funciones diferentes? -->
+
+<body onmousemove="muestraInformacion(event)" onclick="ratonAmarillo()" onkeypress="tecladoAzul(event)">
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <h3>Navegador: <span id="coordenadaNavegador"></span></h3>
+        <h3>Página:<span id="coordenadaPagina"></span></h3>
+    </div>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <h3>Caracter:<span id="coordenadaCaracter"></span></h3>
+        <h3>Código:<span id="coordenadaCodigo"></span></h3>
+    </div>
+    <script type="text/javascript">
+    /* funciones para cambiar el color amarillo de la caja de ratón */
+    function ratonAmarillo() {
+        document.getElementById("raton").style.backgroundColor = "#FFFFCC";
+    }
+
+    function tecladoAzul(event) {
+        /* he usado el evento which junto con keyCode para mostrar el código Ascii porque no consigo hacerlo con charCodeAt */
+        var codigo = event.which || event.keyCode;
+        document.getElementById("coordenadaCodigo").innerHTML = codigo;
+        /* para mostrar la letra se usa .key */
+        document.getElementById("coordenadaCaracter").innerHTML = event.key;
+        /* para cambiar a color azul la caja del teclado */
+        document.getElementById("teclado").style.backgroundColor = "#CCE6FF";
+    }
+
+    function muestraInformacion(event) {
+        /* DUDA: event.client sólo vale para sacar las coordenadas cuando haces click? lo usé la primera vez y me funcionaba pero no entiendo muy bien para qué sirve */
+        var xNavegador = event.screenX;
+        var yNavegador = event.screenY;
+        var coordenadasNavegador = "[" + xNavegador + ", " + yNavegador + "]";
+        document.getElementById("coordenadaNavegador").innerHTML = coordenadasNavegador;
+        /* ahora se cambian las coordenadas para mostrar los datos de la página */
+        var xPagina = event.pageX;
+        var yPagina = event.pageY;
+        var coordenadasPagina = "[" + xPagina + ", " + yPagina + "]";
+        document.getElementById("coordenadaPagina").innerHTML = coordenadasPagina;
+        /* así siempre se quedan blancas ambas cajas cuando se mueve el ratón */
+        /* como en un getElementById no se puede llamar más que a un elemento, he visto que con byclassname se puede aplicar un estilo a múltiples elementos, pero no logro que funcione:
+        document.getElementsByClassName("box").style.backgroundColor = "#FFFFFF"; */
+        document.getElementById("raton").style.backgroundColor = "#FFFFFF";
+        document.getElementById("teclado").style.backgroundColor = "#FFFFFF";
+    }
+    </script>
+</body>
+
+</html>
