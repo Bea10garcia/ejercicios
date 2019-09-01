@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Comparador de numeros</title>
+
+<!--JS-->
+    <script text="javascript">
+        
+        // usamos ParseFloat para convertir la cadena en su valor numerico. y con value comparar el valor
+   function Compar(){
+       var NroA =parseFloat(document.getElementById("NumA").value);
+       var NroB =parseFloat(document.getElementById("NumB").value);
+          
+   
+        if(NroA > NroB){
+                alert("NumA > NumB");
+
+            }else if (NroA === NroB){
+                alert("NumA = NumB");
+
+            }else if(NroA < NroB){ 
+                alert("NumA < NumB");
+
+            }else{
+                alert("ERROR");
+            }
+   }
+    
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+        <form name ="fomulario">
+            <input type="text" id="NumA" placeholder="introduce numero A">
+            <input type="text" id="NumB" placeholder="introduce numero B">
+            <button type="submit" name="Comparador" lenguage="javascript" onclick= "Compar()" >Boton</button>
+        </form>
+    </div>
+
+</body>
+</html>
