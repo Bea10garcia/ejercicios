@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Required by Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Se han creado algunos estilos para ajustar mejor la apariencia visual  -->
+    <link rel="stylesheet" type="text/css" href="ejercicio10-PropuestaProfe.css">
+    
+    <!-- Añadimos librería de iconos (no presente en Bootstrap 4) - Icon Webfonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Añadimos moment.js para manejar fechas -->
+     <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    
+    <!-- Script con el código -->
+    <script src="ejercicio10-PropuestaProfe.js" type="text/javascript" language="javascript"></script> 
+
+    <script>
+        /*
+            Esta función se incluye para Firefox. Cuando se recarga la página (con F5, <ctrl>+R, o icono), no se reinician los valores
+            que tuvieran los elementos <input>. Esto hace que si un biorrtimo secundario no se mostraba (checkbox desmarcado), al recargar la página su checkbox sigue desmarcado, pero el bloque si se muestra con los valores por defecto. Esto no ocurre con Chrome ni con Opera ni con Edge
+        */
+        document.addEventListener("DOMContentLoaded", function(event) {
+            console.log("DOM fully loaded and parsed");
+            var list = document.querySelectorAll( 'input[type=checkbox]' );
+            for (var item of list) {
+              item.checked = true;
+            }
+        });
+    </script>
+    
+    <title>Ejercicio 10 Biorritmos</title>
+</head>
+
+<body>
+    <div class="container"> <!-- Contenedor básico de Bootstvar list = document.querySelectorAll( 'input[type=checkbox]' );
+for (var item of list) {
+  item.checked = true;
+}rap. Necesario para aplicar los estilos correctamente -->
+        <div class="row justify-content-center">   <!-- Organizamos los distintos contenidos en filas. Fila 1:Cabecera -->
+            <h1 class="text-center">Calculadora de Biorritmos</h1>
+        </div>
+        <div class="row justify-content-center mb-4">   <!-- Fila 2: Fecha de nacim. -->
+            <div class="col-5">
+            <form id="ingresaCumple">
+                <div class="input-group">  <!--  Ponemos los campos del formulario en una sóla línea usando input-group  -->
+                    <label class="mt-2 mr-2" for="fechaCumple">Fecha de nacimiento:</label>
+                    <input type="date" name="fechaNacimiento">
+                    <div class="input-group-append ml-2">
+                        <input type="button" class="btn btn-primary" name="btnCalcular" id="Calcular" value="Calcular" onclick="calcBiorritmos(fechaNacimiento.value)">
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="col-2">
+                <p class="mt-2">Días vividos: <span id="diasvividos">21.235</span></p>
+            </div>
+        </div>                              
+        <div class="card-group">                       <!-- cada resultado se muestra en una "tarjeta" (decisiónd e diseño)  -->
+            <div class="card  mb-3 text-center">        <!-- Físico -->
+                <div class="card-header bg-success" href="#" data-toggle="tooltip" data-placement="left" title="Está relacionado con la vitalidad del cuerpo, el impulso más espontáneo, la salud, la fuerza y la destreza física.">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaFisico" role="button" aria-expanded="false"aria-controls="explicaFisico">
+                        <h4 class="text-white mb-0">Físico</h4>
+                    </a>
+                    <div class="collapse" id="explicaFisico">
+                        <hr>
+                        <p class="text-small text-white mb-0">El ciclo físico es de 23 días y rige todas las actividades en las que el organismo, el cuerpo y la personalidad exterior se ponen de manifiesto. Es el ciclo más tónico de los tres, ya que determina en gran medida la resistencia, agilidad, pasividad o actividad frente a las situaciones o compromisos cotidianos en los que es el cuerpo quien ha de dar respuestas. Determinará también la réplica del organismo frente al agotamiento físico, las enfermedades o pondrá de manifiesto la energía disponible para organizarse en el día a día.</p>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <p class="text-left text-success">Día <span id="diaFisico">12</span> del ciclo de <span id="diasFisico">23</span>.</p>
+                    <p class="display-5 text-success font-weight-bold" id="valFisico">--% 
+                        <i class="material-icons icon-flipped display-6" id="icoFisico">call_received</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataFisico" role="button" aria-expanded="false" aria-controls="dataFisico">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-success card-footer" id="dataFisico">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataFisico"</strong>.
+                </div> 
+            </div>
+            <div class="card mb-3 text-center">         <!-- Emocional -->
+                <div class="card-header bg-warning" href="#" data-toggle="tooltip" data-placement="left" title="Se refiere al estado de nuestras emociones, la vitalidad anímica, los sentimientos que varían según el estado de ánimo y el humor. En fase Alta estamos más alegres, en fase baja, más apáticos, la fase crítica es la más propensa a las discusiones.">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaEmocional" role="button" aria-expanded="false"aria-controls="explicaEmocional">
+                        <h4 class="text-white mb-0">Emocional</h4>
+                    </a>
+                    <div class="collapse" id="explicaEmocional">
+                        <hr>
+                        <p class="text-small text-white mb-0">El ciclo emocional es de 28 días y en él se registran las fluctuaciones a las que el temperamento emocional se somete. Las emociones son una de nuestras asignaturas más arduas, de ellas dependen nuestras relaciones con el entorno inmediato, la pareja, los amigos, la familia etc. Está comprobado que por óptima que sea la curva del biorritmo físico, si el ciclo emocional no acompaña, empañará los resultados positivos de las expectativas. Por lo tanto es de vital importancia tratar de armonizar esas tendencias, con el fin de conseguir un mayor control sobre las circunstancias. En estos momentos en los que se le da tanta importancia a la “inteligencia emocional”, la respuesta a muchos de nuestros problemas se halla en una adecuada educación emocional de manera a aprovechar al máximo nuestros propios recursos.</p>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <p class="text-left text-warning">Día <span id="diaEmocional">12</span> del ciclo de <span id="diasEmocional">23</span>.</p>
+                    <p class="display-5 text-warning font-weight-bold" id="valEmocional">--% 
+                        <i class="material-icons display-6" id="icoEmocional">call_made</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataEmocional" role="button" aria-expanded="false" aria-controls="dataEmocional">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-warning card-footer" id="dataEmocional">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataEmocional"</strong>.
+                </div>
+            </div>
+            <div class="card mb-3 text-center">         <!-- Intelectual -->
+                <div class="card-header bg-info" href="#" data-toggle="tooltip" data-placement="left" title="Se refiere a nuestro estado psicológico, cómo está nuestra mente, si más receptiva, en alerta, más dispuesta para la concentración. Para el estudio es mejor la fase alta, para el reposo de la mente, aprovechar la fase baja. La fase crítica puede inducirnos en error.">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaIntelectual" role="button" aria-expanded="false"aria-controls="explicaIntelectual">
+                        <h4 class="text-white mb-0">Intelectual</h4>
+                    </a>
+                    <div class="collapse" id="explicaIntelectual">
+                        <hr>
+                        <p class="text-small text-white mb-0">El ciclo llamado intelectual o cerebral es el más largo de todos y es de 33 días. Es a través de sus fases ascendentes y descendentes que podemos establecer las constantes de nuestra capacidad intelectual, nuestra actitud frente al reto y la respuesta práctica ante un problema determinado. Sabemos que  el ser humano utiliza un diez por ciento de su capacidad cerebral, por lo que la infra-utilizamos. Para paliar, en parte esta desventaja podemos recurrir a la curva de nuestro biorritmo y tratar de  rentabilizar al máximo nuestro potencial mental, averiguando cuáles son los días que más nos benefician.</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-left text-info">Día <span id="diaIntelectual">12</span> del ciclo de <span id="diasIntelectual">33</span>.</p>
+                    <p class="display-5 text-info font-weight-bold" id="valIntelectual">--% 
+                        <i class="material-icons display-6" id="icoIntelectual">call_made</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataIntelectual" role="button" aria-expanded="false" aria-controls="dataIntelectual">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-info card-footer" id="dataIntelectual">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataIntel"</strong>.
+                </div> 
+            </div>   
+        </div>
+        
+        <div class="card">
+            <div class="car-header bg-teal border border-gray rounded" id="interpretacion">
+                <a class="btn btn-link btn-lg" role="button" data-toggle="collapse" href="#interpreta" aria-expanded="true" aria-controls="interpreta">Ver Interpretación</a>
+            </div>
+            <div id="interpreta" class="collapse card-body" aria-labelledby="interpretacion" data-parent="#interpretacion">
+                Para poner aquí la interpretación según los valores obtenidos, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="interpreta"</strong>.
+            </div>
+        </div>
+
+        <!--    Replicamos la estructura anterior (dentro de container) para los tros ciclos -->
+        <div class="row justify-content-center">  
+            <h1 class="text-center">Otros Biorritmos</h1>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="esp" value="esp" checked onchange="cambia(this.checked,'card-'+this.value)" onload="activar()">
+                <!-- El parametro "this" pasa el objeto que lanza el evento  -->
+                <label class="form-check-label" for="inlineCheckbox1">Espiritual</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="intu" value="intu" checked onchange="cambia(this.checked,'card-'+this.value)">
+                <label class="form-check-label" for="inlineCheckbox2">Intuición</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="con" value="con" checked onchange="cambia(this.checked,'card-'+this.value)">
+                <label class="form-check-label" for="inlineCheckbox3">Conciencia</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="est" value="est" checked onchange="cambia(this.checked,'card-'+this.value)">
+                <label class="form-check-label" for="inlineCheckbox3">Estética</label>
+            </div>
+        </div>
+        <div class="card-group">                                        <!-- cada resultado se muestra en una "tarjeta" (decisiónd e diseño)  -->
+            <!--
+                Añado la clase "border" para que al mostrarse el bloque sin ninguno a los lados se vea todo el border.
+                Si no se pone, al ocultar el bloque lateral, en el que queda visible desaparece el borde correspondiente.
+            -->
+            <div class="card border mb-3 text-center" id="card-esp">                               <!-- Espiritual -->
+                <div class="card-header bg-tb-info" href="#" data-toggle="tooltip" data-placement="left" data-html="true" title="Para modificar este <em>tooltip</em>, modificar el atributo <strong>title</strong> del div con clase <em>card-header</em> correspondiente.<br>Si no se utilizan etiquetas HTML, se puede eliminar el atributo <strong>data-html</strong>.<br>Ver <a href='https://getbootstrap.com/docs/4.0/components/tooltips/'>este </a>enlace">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaEspiritual" role="button" aria-expanded="false"aria-controls="explicaEspiritual">
+                        <h4 class="text-info mb-0">Espiritual</h4>
+                    </a>
+                    <div class="collapse" id="explicaEspiritual">
+                        <hr>
+                        <p class="text-small text-info mb-0">Poner aquí el significado del ciclo.</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-left text-info">Día <span id="diaEspiritual">12</span> del ciclo de <span id="diasEspiritual">33</span>.</p>
+                    <p class="display-5 text-info font-weight-bold" id="valEspiritual">--% 
+                        <i class="material-icons icon-flipped display-6">call_received</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataEspiritual" role="button" aria-expanded="false" aria-controls="dataEspiritual">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-info card-footer" id="dataEspiritual">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataEspiritual"</strong>.
+                </div> 
+            </div>
+            <div class="card border mb-3 text-center" id="card-intu">                              <!-- Intuición -->
+                <div class="card-header bg-tb-warning" href="#" data-toggle="tooltip" data-placement="left" data-html="true" title="Para modificar este <em>tooltip</em>, modificar el atributo <strong>title</strong> del div con clase <em>card-header</em> correspondiente.<br>Si no se utilizan etiquetas HTML, se puede eliminar el atributo <strong>data-html</strong>.<br>Ver <a href='https://getbootstrap.com/docs/4.0/components/tooltips/'>este </a>enlace">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaIntuicion" role="button" aria-expanded="false"aria-controls="explicaIntuicion">
+                        <h4 class="text-orange mb-0">Intuición</h4>
+                    </a>
+                    <div class="collapse" id="explicaIntuicion">
+                        <hr>
+                        <p class="text-small text-orange mb-0">Poner aquí el significado del ciclo.</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-left text-warning">Día <span id="diaIntuicion">12</span> del ciclo de <span id="diasIntuicion">33</span>.</p>
+                    <p class="display-5 text-warning font-weight-bold" id="valIntuicion">--% 
+                        <i class="material-icons display-6">call_made</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataIntuicion" role="button" aria-expanded="false" aria-controls="dataIntuicion">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-warning card-footer" id="dataIntuicion">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataIntuicion"</strong>.
+                </div> 
+            </div>
+            <div class="card border mb-3 text-center" id="card-con">                               <!-- Conciencia -->
+                <div class="card-header bg-tb-success" href="#" data-toggle="tooltip" data-placement="left" data-html="true" title="Para modificar este <em>tooltip</em>, modificar el atributo <strong>title</strong> del div con clase <em>card-header</em> correspondiente.<br>Si no se utilizan etiquetas HTML, se puede eliminar el atributo <strong>data-html</strong>.<br>Ver <a href='https://getbootstrap.com/docs/4.0/components/tooltips/'>este </a>enlace">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaConciencia" role="button" aria-expanded="false"aria-controls="explicaConciencia">
+                        <h4 class="text-success mb-0">Conciencia</h4>
+                    </a>
+                    <div class="collapse" id="explicaConciencia">
+                        <hr>
+                        <p class="text-small text-success mb-0">Poner aquí el significado del ciclo.</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-left text-success">Día <span id="diaConciencia">12</span> del ciclo de <span id="diasConciencia">33</span>.</p>
+                    <p class="display-5 text-success font-weight-bold" id="valConciencia">--% 
+                        <i class="material-icons display-6">call_made</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataConciencia" role="button" aria-expanded="false" aria-controls="dataConciencia">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-success card-footer" id="dataConciencia">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataConciencia"</strong>.
+                </div> 
+            </div>
+            <div class="card border mb-3 text-center" id="card-est">                               <!-- Estética -->
+                <div class="card-header bg-tb-danger" href="#" data-toggle="tooltip" data-placement="left" data-html="true" title="Para modificar este <em>tooltip</em>, modificar el atributo <strong>title</strong> del div con clase <em>card-header</em> correspondiente.<br>Si no se utilizan etiquetas HTML, se puede eliminar el atributo <strong>data-html</strong>.<br>Ver <a href='https://getbootstrap.com/docs/4.0/components/tooltips/'>este </a>enlace">
+                    <a class="btn btn-link pt-0 pb-0 border-0" data-toggle="collapse" href="#explicaEstetica" role="button" aria-expanded="false"aria-controls="explicaEstetica">
+                        <h4 class="text-danger mb-0">Estética</h4>
+                    </a>
+                    <div class="collapse" id="explicaEstetica">
+                        <hr>
+                        <p class="text-small text-danger mb-0">Poner aquí el significado del ciclo.</p>
+                    </div>
+                </div>                
+                <div class="card-body">
+                    <p class="text-left text-danger">Día <span id="diaEstetica">12</span> del ciclo de <span id="diasEstetica">33</span>.</p>
+                    <p class="display-5 text-danger font-weight-bold" id="valEstetica">--% 
+                        <i class="material-icons display-6">call_made</i>
+                    </p>
+                    <p class="text-right">
+                        <a data-toggle="collapse" href="#dataEstetica" role="button" aria-expanded="false" aria-controls="dataEstetica">ver datos</a>
+                    </p>
+                </div>
+                <div class="collapse bg-tb-danger card-footer" id="dataEstetica">
+                    Para poner aquí la interpretación según el valor obtenido, modificar desde el código js la propiedad <strong>"innerHTML"</strong> delelemento con <strong>ID="dataEstetica"</strong>.
+                </div> 
+            </div>    
+        </div>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--    Se incializan los tooltip. ver https://getbootstrap.com/docs/4.0/components/tooltips/#overview  -->
+    <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</body>

@@ -9,6 +9,14 @@ Ejercicio 1 --> **8,0**
 - En la línea 13 se puede pasar como parámentro "numero.value". Al ocupar menos espacio de memoria un número (propiedad ".value") que un objeto ("numero") se mejora el uso de la memoria. En este caso concreto es una diferencia irrelevante, pero es necesario acostumbrarse a tener presente siempre técnicas que optimicen el uso de memoria y demás recursos del terminal. (-0,25)
 - La sentencia "if" de la línea 23 -27, se puede reducir a una sóla línea. **Busca info sobre el operador ternario y pruébalo** (-1)
 
+Ejercicio 2 --> **no se puntúa**
+
+- Bien comentado.
+- Bootstrap mal aplicado.
+- Código js mejorable.
+- Ver estructura y código propuestos por el profe.
+- Añadido estilos CSS en archivo .css
+
 Ejercicio 4 --> **6,75**
 
 - Para indicar un campo como requerido, sólo es necesario inlcuir la cláusula "required". No es necesaria una expresión (required="required") (-0.25)

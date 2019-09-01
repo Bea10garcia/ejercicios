@@ -1,0 +1,29 @@
+.icon-flipped {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+/*	Colores   */
+.bg-success-lt {background-color: rgb(225, 249, 230);}
+.bg-warning-lt{background-color: rgb(253, 239, 196);}
+.bg-info-lt{background-color: rgb(212, 242, 247);}
+.bg-tb-success {background-color: #c3e6cb;}
+.bg-tb-danger {background-color: #f5c6cb;}
+.bg-tb-warning {background-color: #ffeeba;}
+.bg-tb-info {background-color: #bee5eb;}
+.text-orange {color: #fd7e14;}
+
+/* Para los iconos */
+.material-icons.display-6 {
+    font-size: 2.5rem !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+}
