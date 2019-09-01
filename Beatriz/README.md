@@ -9,13 +9,15 @@ Ejercicio 1 --> **8,0**
 - En la línea 13 se puede pasar como parámentro "numero.value". Al ocupar menos espacio de memoria un número (propiedad ".value") que un objeto ("numero") se mejora el uso de la memoria. En este caso concreto es una diferencia irrelevante, pero es necesario acostumbrarse a tener presente siempre técnicas que optimicen el uso de memoria y demás recursos del terminal. (-0,25)
 - La sentencia "if" de la línea 23 -27, se puede reducir a una sóla línea. **Busca info sobre el operador ternario y pruébalo** (-1)
 
-Ejercicio 2 --> **no se puntúa**
+Ejercicio 2 --> **8,0**
 
 - Bien comentado.
-- Bootstrap mal aplicado.
-- Código js mejorable.
-- Ver estructura y código propuestos por el profe.
-- Añadido estilos CSS en archivo .css
+- Apariencia estética mejorable (-1,5):
+-- Tamaño de letra.
+-- Alineación de etiqueta y area de texto.
+-- Espaciado del botón.
+- Salida del bucle de comprobación. Una vez que se comprueba que no es palíndromo, se puede interrumpir el bucle de comprobación (-0,5)
+
 
 Ejercicio 4 --> **6,75**
 
@@ -28,6 +30,12 @@ Ejercicio 5 --> **10,0**
 - Comentario línea 56 -> en Firefox keyCode no funciona. Devuelve 0. Por eso se usa wihch.
 - Duda línea 66 -> A esa función se llega con el evento 'onmousemove'. event.client no es un evento válido. Consulta https://www.w3schools.com/js/js_events_examples.asp
 
+Ejercicio 10 --> **no se puntúa**
+
+- Bootstrap mal aplicado.
+- Código js mejorable.
+- Ver estructura y código propuestos por el profe.
+- Añadido estilos CSS en archivo .css
 
 Ejercicio 11 --> **8,5**
 
