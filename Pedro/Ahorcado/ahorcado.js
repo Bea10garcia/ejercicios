@@ -20,8 +20,8 @@ function jugarahorcado(letra) {
 		document.getElementById("adivinando").innerHTML += letra;
 	} else {
 		alert("LETRA NO CORRECTA");
-		vidas--;
-		document.getElementById("vidas").innerHTML= vidas;
+		//vidas--;
+		document.getElementById("vidas").innerHTML= --vidas;
 		errores++;
 		console.log(errores);
 		document.getElementById("errores").innerHTML= errores;

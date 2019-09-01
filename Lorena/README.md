@@ -9,10 +9,10 @@ Ejercicio 1 --> **8,0**
 Ejercicio 2 --> **7,5**
 
 - La cláusula de salida (lin. 9-12) es mejor hacerla con un if (-0,5). 
--- if (frase == "") {
---		alert(...)
---		return
---}
+  if (frase == "") {
+    alert(...)
+    return
+  }
 - No cambias las letras con tilde por el mismo caracter sin tilde. Así, "dábale" no detecta que sea el palíndromo de "el abad". (-1)
 - La sentencia "if" de la línea 29-33, se puede reducir a una sóla línea. **Busca info sobre el operador ternario y pruébalo** (-1)
 
