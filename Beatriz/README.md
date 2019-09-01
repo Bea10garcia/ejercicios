@@ -23,6 +23,12 @@ Ejercicio 4 --> **6,75**
 - Sobra la función validarFormulario (-1,5)
 - El resto de funciones se puede mejorar tanto en funcionalidad, como en legibilidad (-1,5)
 
+Ejercicio 5 --> **10,0**
+
+- Comentario línea 56 -> en Firefox keyCode no funciona. Devuelve 0. Por eso se usa wihch.
+- Duda línea 66 -> A esa función se llega con el evento 'onmousemove'. event.client no es un evento válido. Consulta https://www.w3schools.com/js/js_events_examples.asp
+
+
 Ejercicio 11 --> **8,5**
 
 - No pasas los parámetros a las funciones (-1).
