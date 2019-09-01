@@ -5,6 +5,7 @@ function parImpar(numero){
 	numero = parseInt(numero);
 	//console.log(typeof(numero));
 
+/*
 	if(numero<0){
 		alert("Ingresa un número entero");
 		
@@ -15,6 +16,9 @@ function parImpar(numero){
 		document.getElementById("resultado").innerHTML ="El número "+numero+" es impar";
 		
 	}
+*/
+	// Propuesto por CPL
+    document.getElementById("resultado").innerHTML= ' El número ' + numero + ((numero % 2 == 0) ?  ' es par ' : ' es impar ');
 }
 
 

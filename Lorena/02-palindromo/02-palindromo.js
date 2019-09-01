@@ -26,11 +26,16 @@ for (var i=0; i < ((fraseInvertida.length)-1); i++) {
 //console.log(frase);
 
 //Compruebo si es un palíndromo
+/*
 if(frase==fraseInvertida){
 	document.getElementById("resultado").innerHTML="La frase <em>"+fraseUsuario.value+"</em> es un palíndromo";
 }else if(frase!=fraseInvertida){
 	document.getElementById("resultado").innerHTML="La frase <em>"+fraseUsuario.value+"</em> no es un palíndromo";
 }
+*/
+//	Propuesto por el profe 
+document.getElementById("resultado").innerHTML="La frase <em>"+fraseUsuario.value+"</em> " +
+	(frase==fraseInvertida ? 'es ' : 'no es ') + "un palíndromo";
 
 }
 
