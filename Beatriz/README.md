@@ -13,9 +13,9 @@ Ejercicio 2 --> **8,0**
 
 - Bien comentado.
 - Apariencia estética mejorable (-1,5):
--- Tamaño de letra.
--- Alineación de etiqueta y area de texto.
--- Espaciado del botón.
+	-- Tamaño de letra.
+	-- Alineación de etiqueta y area de texto.
+	-- Espaciado del botón.
 - Salida del bucle de comprobación. Una vez que se comprueba que no es palíndromo, se puede interrumpir el bucle de comprobación (-0,5)
 
 
