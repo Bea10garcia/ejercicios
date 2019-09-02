@@ -55,7 +55,7 @@ function invertir(entrada){
 function peligro(cadena){
     if (cadena.match(/<html(.|\n)*?<\/html>/)){
         if (cadena.match(/<script(.|\n)*?<\/script>/)){
-            cadena = cadena.replace(/<script(.|\n)*?<\/script>/ , "");
+            cadena = cadena.replace(/<script(.|\n)*?<\/script>/g , "");
             document.getElementById("solucionpeligro").innerHTML = cadena;
         }else{
             document.getElementById("solucionpeligro").innerHTML = "La cadena de HTML no contiene ningún script";
