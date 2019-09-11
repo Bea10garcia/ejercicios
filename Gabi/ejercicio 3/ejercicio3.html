@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Regex fecha</h1>
+    <h3>Compureba si el texto tiene una fecha (dd/mm/aaaa)</h3>
+    <input type="text" id="frase" size="60"><button onclick="fecha(frase.value)">¡Comprobar!</button><br><br>
+    <b><span id="solucionfecha"></span></b><br>
+    <hr>
+    <h1>Regex email</h1>
+    <h3>Comprueba si el email es válido</h3>
+    <input type="text" id="email" size="60"><button onclick="correo(email.value)">¡Comprobar!</button><br><br>
+    <b><span id="solucionemail"></span></b><br>
+    <hr>
+    <h1>Regex para sustuir</h1>
+    <h3>Introduce un texto para realizar las sustituciones</h3>
+    <textarea id="sust" rows="5" cols="60"></textarea><br>
+    <button onclick="escapeHTML(sust.value)">Sustituir</button><br><br>
+    <b><xmp id="solucionsust"></xmp></b><br>
+    <hr>
+    <h1>Regex nombre y apellidos</h1>
+    <h3>Invierte orden de nombre y apellidos</h3>
+    <input type="text" id="nombre"size="40"><button onclick="invertir(nombre.value)">¡Invertir!</button><br><br>
+    <b><span id="solucionnombre"></span></b><br>
+    <hr>
+    <h1>Regex Elimiar script</h1>
+    <h3>Eliminar etiquetas peligrosas de cadena HTML</h3>
+    <textarea id="htmlscript" rows="30" cols="120"></textarea><br><br>
+    <button onclick="peligro(htmlscript.value)">Sustituir</button><br><br>
+    <b><xmp id="solucionpeligro"></xmp></b><br>
+    <script src="ejercicio3.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <!--JS-->
+    <script type="text/javascript">
+     
+     function Compar() {  
+          //  var division = Rest;
+            
+            var Rest= formulario.i.value % 2;
+          
+                if(Rest==1){
+                   //var IMP ="es impar"
+                   document.getElementById("numer").innerHTML= Rest +", es impar"; 
+                    //alert("Numero impar");
+                    //document.write("Numero IMPAR")
+        
+                } else if(Rest==0) {
+                    //var PAR =" es par"
+                    document.getElementById("numer").innerHTML= Rest +", es par";
+                    //alert("Numero par");
+                    //document.write("Numero PAR")
+                 } else
+                   // documet.getElementById("numer").innerHTML=Rest;
+                    alert("Error, no es un numero");
+                
+                }   
+
+    </script>
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>numero par o impar</h1>
+<div>
+    <form name="formulario">
+        <input type="text"  id="i" placeholder=" Escribe Numero">
+        <input type="button" onclick="Compar()" value="SOY" lenguage="JavaScript">
+    </form>
+</div>
+
+<div >El resto del nº insertado es <span id="numer"></span>
+</div>
+
+</body>
+
+</html>

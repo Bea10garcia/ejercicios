@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h2>JavaScript Regular Expressions</h2>
+
+
+<!--FORMULARIO-->
+
+<form>
+  <input type="text" id ="correo">
+  <input type="button" value="@" onclick="ValCorreo()">
+</form>
+
+<p id="demo"></p>
+<p id="patt"></p>
+<!--FIN DE FORMULARIO-->
+
+<!--FORMULARIO 2-->
+
+<form>
+  <input type="text" id ="fecha">
+  <input type="button" value="Fecha" onclick="ValFecha()">
+</form>
+
+<p id="demoB"></p>
+<p id="pattB"></p>
+<!--FIN DE FORMULARIO2-->
+ 
+
+<!-- BOTON 3-->
+<!---------------------------------->
+<form >
+  <input type="text" id="rempl">
+  <input type="button" value="replace" onclick="Remplazo()">
+
+</form>
+<p id="demoC"></p>
+
+
+<!--BOTON 4-->
+<!---------------------------------->
+<form>
+  <input type="text" id="Nom">
+  <input type="button" value="Consulta"onclick="Invers()">
+
+</form>
+<p id="Invers"></p>
+
+
+<!--BOTON 5-->
+
+<form>
+  <input type="text" id="JsEraser">
+  <input type="button" value="EjecuThor"onclick="Eraser()">
+</form>
+<p id="Result"></p>
+
+<!----JS----->
+<script>
+//------------------------------------------------------------------------
+//FUNCIÓN 1 VALIDAR E-MAIL
+//------------------------------------------------------------------------
+
+// macth sirve para comparar
+function ValCorreo() {
+  var str = document.getElementById("correo").value;
+  var patt = /\w+[\.\+\-]*\w+@\w+[\.-]?\w+\.\w{2,4}/;
+  var result = str.match(patt);
+  var result2= patt.test(str);
+  document.getElementById("demo").innerHTML = result;
+	document.getElementById("patt").innerHTML=result2;
+}
+
+//-----------------------------------------------------------------------
+//FUNCIÓN 2 ENCONTRAR CUMPLEAÑOS
+//-----------------------------------------------------------------------
+
+function ValFecha() {
+  // implementamos espacios " " delante y detras
+  //poninedo los espacios se puede contemplar la fecha al principio y al final de la cadena de texto
+  //dado que siempre buscamos un espacio al pricipio y al final de la fecha
+  // ej: 23/12/1999 si no estubiera los espacios esto seria falso dado que esto no tiene espacios ni al pricipio, ni al final
+
+  var strB = " "+ document.getElementById("fecha").value+" ";
+  var pattB = / \d{2}[\/]\d{2}[\/]\d{4}[\ \,\.]/;
+  var resultB = strB.match(pattB);
+  var result2B= pattB.test(strB)
+  document.getElementById("demoB").innerHTML = resultB;
+	document.getElementById("pattB").innerHTML=result2B;
+}
+
+//--------------------------------------------------------------
+//FUNCION 3 REMPLAZO DE CARACTERES
+//--------------------------------------------------------------
+
+function Remplazo() {
+  var strC = document.getElementById("rempl").value; 
+  var txtC = strC.replace(/&/g,"&ampamp;");
+  var textC2= txtC.replace(/\"/g,"&quot;");
+  var textC3 = textC2.replace(/</g,"&lt");
+  var textC4 = textC3.replace(/>/g,"&gt");
+ 
+  document.getElementById("demoC").innerHTML =textC4;
+  
+}
+
+//-----------------------------------------------------------------
+//FUNCION 4 INVERSIÓN DE NOMBRE
+//-----------------------------------------------------------------
+
+function Invers() {
+  var strD = document.getElementById("Nom").value;
+
+  // Nombre
+  var pattD = /\w+/g;
+  var resultD = pattD.exec(strD);
+
+  // Apellido 1
+  var patt2D = /\s\w+/g;
+  result2D = patt2D.exec(strD);
+ 
+  document.getElementById("Invers").innerHTML = result2D + ", " + resultD;
+}
+
+
+//------------------------------------------------------------------------
+// FUNCION 5 ELIMINADOR DE SCRIP
+//-------------------------------------------------------------------------
+
+ function Eraser (){
+    var JSCRPT= document.getElementById("JsEraser").value ;
+    var Rep = JSCRPT.replace(/<script>[.\n]*<\/script>/g,"");
+
+    document.getElementById("Result").innerHTML=Rep;
+
+ }
+  
+</script>
+
+</body>
+</html>

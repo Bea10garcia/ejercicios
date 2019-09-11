@@ -1,0 +1,147 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Bioritmos</title>
+        <h1> Bioritmos</h1>
+    </head>
+<body>
+     <script type="text/javascript">
+
+//funcion de de introcucion de fecha 
+        function Compar(){
+            var fecha1 = new Date(document.getElementById("fecha1").value);
+            var fecha2 = new Date(document.getElementById("fecha2").value);
+// diferencia entre fechas
+            var Ndias = fecha2.getTime() - fecha1.getTime();
+            var dias = Math.round(Ndias/(1000 * 60 * 60 * 24));
+            
+
+             
+//con el if comprobamos que la fecha esta bien introducida         
+            if(Ndias<0){
+                alert("Error de fecha, fecha1 mas reciente  Fecha2")
+            }else if(Ndias==0){
+                alert("No hay diferncia de fecha (mismo dia)")
+
+            }
+
+//variables pasadas por consola para controlar el proceso
+            console.log("dias de diferencia: " + dias);
+            console.log(document.getElementById("fecha1").value)
+            console.log(document.getElementById("fecha2").value)
+
+        
+//variables impresas en documento
+            
+            document.getElementById ("frase").innerHTML="Los de dias de diferencia: " + dias;
+            //document.getElementById("Difdias").innerHTML= dias.value;
+            
+        
+//funcion senoidal para los bioritmos
+            var X= dias;
+            var SenFisico = Math.sin(Math.PI*X*2/23);
+            var SenEmocional=Math.sin(Math.PI*X*2/28);
+            var SenIntelectual=Math.sin(Math.PI*X*2/33);
+
+// funciones senoidales secuntarias
+            var SenEspiritual=Math.sin(Math.PI*X*2/53);
+            var SenIntuición=Math.sin(Math.PI*X*2/38);
+            var SenConciencia=Math.sin(Math.PI*X*2/48);
+            var SenEstética=Math.sin(Math.PI*X*2/43);
+
+// control por consola de las 3 variables principales
+           
+            //console.log(SenFisico)
+            //console.log(SenEmocional)
+            //console.log(SenIntelectual)
+
+// VAR PRINCIPALES
+        document.getElementById("Fisico").innerHTML= SenFisico;
+        document.getElementById("Emocional").innerHTML=SenEmocional;
+        document.getElementById("Intelectual").innerHTML=SenIntelectual;
+
+// VAR SECUNADIRAS
+
+        if (document.getElementById("Esp").checked){
+            document.getElementById("Espiritual").innerHTML=SenEspiritual;
+        }else{
+            document.getElementById("Espiritual").innerHTML="";
+        }
+        
+        //------------------------------------------------------------
+        if (document.getElementById("Int").checked){
+            document.getElementById("Intuición").innerHTML=SenIntuición;
+        }else{
+            document.getElementById("Intuición").innerHTML="";
+        }
+
+        //----------------------------------------------------------------
+        if (document.getElementById("Con").checked){
+            document.getElementById("Conciencia").innerHTML=SenConciencia;
+        }else{
+            document.getElementById("Conciencia").innerHTML="";
+        }
+        //---------------------------------------------------------------
+        if (document.getElementById("Est").checked){
+            document.getElementById("Estética").innerHTML=SenEstética;
+        }else{
+            document.getElementById("Estética").innerHTML="";
+        }
+        
+
+        
+        }
+
+    function Ocultar (){
+
+
+
+    }
+    </script>
+   
+
+<!--introducir fecha a elegir-->
+      <div>
+          <form>
+                <input type="date" id="fecha1" placeholder="formato de fecha  2008,06,10">
+                <input type="date" id="fecha2" placeholder="formato de fecha 2008,06,10"> 
+                <input type="button" value="boton" onclick="Compar()">
+
+          </form>
+      </div>
+
+      <div id="frase"> </div>
+      
+
+
+    <!-- VAR PRINCIPALES-->
+    <br> Bioritmos principales </br> 
+      <div id="Fisico"> </div>
+      <div id="Emocional"> </div>
+      <div id="Intelectual"> </div>
+
+      <!-- VAR SECUDARIAS-->
+   
+    <br> Bioritmos secunarios </br> 
+      <br>Espiritual<br>
+    <input type="checkbox" id="Esp"  onclick="Compar()">
+      <div id="Espiritual"> </div>
+
+      <br>Intuición<br>
+    <input type="checkbox" id="Int"  onclick="Compar()">
+      <div id="Intuición"> </div>
+
+      <br>Conciencia <br>
+    <input type="checkbox" id="Con"  onclick="Compar()">
+      <div id="Conciencia"> </div>
+
+      <br>Estética <br>
+    <input type="checkbox" id="Est"  onclick="Compar()">
+      <div id="Estética"> </div>
+      
+   
+
+
+    </body>
+</html>

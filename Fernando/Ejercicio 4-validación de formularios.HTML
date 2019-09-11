@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejercicio 21 - Validación de formularios</title>
+    <style type="text/css">
+    body {font-family: arial, helvetica;}
+    form {
+        width: 600px;
+        margin: 20px auto 0 auto;
+    }
+    label {
+        float: left;
+        width: 200px;
+        font-weight: bold;
+    }
+    label[for="registro_condiciones"] {
+        float: none;
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        width: 360px;
+    }
+    input[type="checkbox"] {
+        margin-left: 200px;
+    }
+    input[type="submit"] {
+        margin: 20px 0 0 200px;
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <!--<form action="servidor.php" method="POST" id="registro">-->
+    <form>
+        <fieldset>
+            <legend>Registro</legend>
+            <label for="registro_nombre">*Nombre:</label><input type="text" onkeyup="Nombre()"name="nombre" id="regnombre">
+            <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido">
+            <label for="registro_email">*Email:</label><input type="text"onkeyup="Correo()" name="email" id="regemail">
+            <label for="registro_password">Password:</label><input type="password" onkeyup="Pass()" name="password" id="regpass">
+            <label for="registro_comentarios">*Comentarios:</label><textarea placeholder="máximo 50 caracteres" maxlength="50"name="comentarios" id="registro_comentarios" rows="10"></textarea>
+            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1"><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            <input type="submit"  value="Enviar">
+        </fieldset>
+    </form>
+   
+    <div id="Alertas">
+        <p> Alertas de formulario</p>
+        <span id="Nombre"></span> <br></br>
+        <span id="Aemail"></span> <br></br>
+        <span id="Contrapass"></span> <br></br>
+        <span id="Coment"></span>
+
+    </div>
+   <!-- <script type="text/javascript" src="js/validador.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+
+-->
+    <p> * Son campos obligatorios</p>
+
+
+<script>
+
+    //funcion para comprobar nombre de nombre user
+
+    function Nombre(){
+        var Nam=document.getElementById("regnombre").value;
+        var Vnam=/^\D{3,}$/;
+        var Cp=Nam.match(Vnam);
+        var Cp2=Vnam.test(Nam);
+
+        if(Cp2 == 0){
+            document.getElementById("Nombre").innerHTML="Nombre no valido"; 
+
+        } else 
+            document.getElementById("Nombre").innerHTML="Nombre correcto";
+
+    
+    } 
+
+    // funcion para comprobar el correo con expresión regular
+    function Correo(){
+        var Mail=document.getElementById("regemail").value;
+        var Reg= /\w+[\.\+\-]*\w+@\w+[\.-]?\w+\.\w{2,4}/;
+        var comp= Mail.match(Reg);
+        var comp2= Reg.test(Mail);
+
+
+        if(comp2 == 0){
+            document.getElementById("Aemail").innerHTML="Email no valido"; 
+
+        } else 
+            document.getElementById("Aemail").innerHTML=comp +"  "+ "...Es correcto";
+
+    
+        //console.log(comp)
+        //console.log(comp2)
+    }
+// funcion contraseña  
+    // minimo 6 caracteres
+    // incluir minimo 1 mayuscula
+    // incluir minimoo 1 minuscula
+    // incluir minimo 1 digito
+    
+    function Pass(){
+        var Cont= document.getElementById("regpass").value;
+        var Expr= /\d\w{6,20}$/;
+        var Compi= Cont.match(Expr);
+        var compi2= Expr.test(Cont);
+      
+        if(compi2 == 0){
+            document.getElementById("Contrapass").innerHTML="Contraseña no valida "+" "+Cont; 
+
+        } else {
+            document.getElementById("Contrapass").innerHTML=Cont +"  "+ "...Es correcta";
+            }
+           // document.getElementById("Contrapass").innerHTML= Cont;
+    }
+
+</script>
+
+
+
+</body>
+
+
+
+</html>
+<!--
+<body>
+    <form action="servidor.php" method="POST" id="registro">
+        <fieldset>
+            <legend>Registro</legend>
+            <label for="registro_nombre">Nombre:</label><input type="text" name="nombre" id="registro_nombre">
+            <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido">
+            <label for="registro_email">Email:</label><input type="text" name="email" id="registro_email">
+            <label for="registro_password">Password:</label><input type="password" name="password" id="registro_password">
+            <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10"></textarea>
+            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1"><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+    <script type="text/javascript" src="js/validador.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+
+</body>
+</html>
+-->

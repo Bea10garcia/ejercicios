@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejercicio - Información sobre eventos</title>
+
+
+    <!--CSS-->
+    <style type="text/css">
+        body {font-family: arial, helvetica;}
+        .box2 {width:100%; height:1000px;}
+        .box1 {width:160px; height:160px; border:thin solid silver; padding:.5em; float: left; margin: 15px;}
+        .box h1 {margin: 0;}
+    </style>
+
+
+<!---->
+
+<!--JS-->
+    <script type="text/javascript">
+
+// funcion de poscionamiento de raton (para la caja)
+        function PosRaton(e){
+            x=e.clientX;
+            y=e.clientY;
+        document.getElementById("Pst").innerHTML= "C.raton"+" X="+ x +" Y="+y;
+            
+        }
+// funcion de poscionamiento de raton (para la pagina web()
+        function PosRaton2(e2){
+            x2=e2.clientX;
+            y2=e2.clientY;
+        document.getElementById("Pst2").innerHTML= "C.Pg"+" X2="+ x2 +" Y2="+y2;    
+    }
+
+// funcion de codigo de boton
+    
+    function whichButton(event) {
+        
+  document.getElementById("teclado").innerHTML = "tecla"+" "+"codigo"+ event.keyCode;
+    }
+
+// propieda de cambio de fondo de caja
+
+    function Cambio(){
+        document.getElementById("raton").style.background= "#FFFFCC";
+    }
+
+    function Recu(){
+        document.getElementById("teclado").style.background="#ffffff";
+        document.getElementById("raton").style.background="#ffffff" ;   
+    }
+    function Change(){
+        document.getElementById("teclado").style.background="#CCE6FF";
+        
+    }
+
+    
+
+    </script>
+
+</head>
+
+<!-- con "onkeyup="whichButton(event)" alojado en el body cualquier tecla pulsada desencadena que realice la funcion-->
+
+<body onkeypress="Change()" onmouseover="Recu()" onkeyup="whichButton(event)">
+<!--Alojamos el div del raton caja y teclado en un div mayor para poder situar ambas cajas poder
+ver la posición dentro de un caja mayor que ocupa la totalidad de la pagina, de esta manera podemos
+determinar su posicion-->
+    <div onmousemove="PosRaton2(event)" id="raton2" class="box2">
+
+        <div onclick="Cambio()" onmousemove="PosRaton(event)" onmouseover="Recu()" id="raton" class="box1">
+            <h1>Ratón</h1>
+            <div id = "Pst">Cordenadas caja</div>
+            <div id ="Pst2">Cordenadas pagina</div>
+            
+        </div>
+        
+        
+        <div class="box1" id="teclado">
+            <h1>Teclado</h1>
+            </div>
+
+    </div>
+    
+    
+    <script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+</html>
