@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="practica_clase_1.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="codigo.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <select name="mes" id="mes" onchange="SemanasMes(anno.value, mes.value)">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>
+    <select id="anno" onchange="SemanasMes(anno.value, mes)">  
+    </select>
+    
+    <div class="container-fluid">   <!--    Bloque para manejar los sub-bloques de las semanas -->
+        <div class="row" id="sem1">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <!--    
+                    Uso una tabla para poder alinear verticalmente las celdas (class="align-self-center" en las celdas <td>)
+                    y que ambos textos queden centrados verticalmente.
+
+                    También hago que la tabla ocupe el 100% de su contenedor (class="w-100")
+                -->
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <div id="lundom1" class="text-center bg-white">4 - 12   <!-- dia lunes - dia domingo -->
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>                  <!-- Mes del primer lunes  -->
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas1">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+        <div class="row" id="sem2">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <!-- dia lunes - dia domingo  el interior se rellena desde el código (ver plantilla en la semana 1-->
+                                <div id="lundom2" class="text-center bg-white">4 - 12   
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>   
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas2">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+        <div class="row" id="sem3">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <!-- dia lunes - dia domingo  el interior se rellena desde el código (ver plantilla en la semana 1-->
+                                <div id="lundom3" class="text-center bg-white">4 - 12   
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>   
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas3">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+        <div class="row" id="sem4">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <!-- dia lunes - dia domingo  el interior se rellena desde el código (ver plantilla en la semana 1-->
+                                <div id="lundom4" class="text-center bg-white">4 - 12   
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>   
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas4">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+        <div class="row" id="sem5">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <!-- dia lunes - dia domingo  el interior se rellena desde el código (ver plantilla en la semana 1-->
+                                <div id="lundom5" class="text-center bg-white">4 - 12  
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>   
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas5">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+        <div class="row" id="sem6">           <!--    Cada semana ocupa una fila -->
+            <div class="col-2 pt-2 pb-2 bg-info">
+                <table class="w-100">
+                    <tbody>
+                        <tr class="text-center bg-white">
+                            <td class="align-self-center">
+                                <!-- dia lunes - dia domingo  el interior se rellena desde el código (ver plantilla en la semana 1-->
+                                <div id="lundom6" class="text-center bg-white">4 - 12   
+                                    <div class="border-top border-secondary"></div>     <!--  Simulo el <hr> pero ocupando menos en vert. -->
+                                    <div id="messem1">Septiembre</div>   
+                                </div> 
+                            </td>
+                            <td class="align-self-center">
+                                <div id="horas6">34:54:56</div>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>                  
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("anno").innerHTML = genera_anno()
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html> 
